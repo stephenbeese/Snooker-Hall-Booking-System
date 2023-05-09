@@ -1,0 +1,1 @@
+web: gunicorn snookerhall.wsgi
