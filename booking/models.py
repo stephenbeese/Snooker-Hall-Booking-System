@@ -60,3 +60,14 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"Comment: {self.comment} by {self.name}"
+
+
+class DateOfBirth(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="birth_date")
+    birth_date = models.DateField()
+
+    class Meta:
+        ordering = ['-user_id']
+
+    def __str__(self):
+        return f"User {self.user_id}'s birthday is {self.birth_date}"

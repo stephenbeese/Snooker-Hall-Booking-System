@@ -1,9 +1,5 @@
 from django.contrib import admin
-from .models import GameTable, Reservation, Testimonial
-
-# admin.site.register(GameTable)
-# admin.site.register(Reservation)
-# admin.site.register(Testimonial)
+from .models import GameTable, Reservation, Testimonial, DateOfBirth
 
 
 @admin.register(GameTable)
@@ -29,3 +25,9 @@ class TestimonialAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+
+@admin.register(DateOfBirth)
+class DateOfBirthAdmin(admin.ModelAdmin):
+    list_display = ('user_id', 'birth_date')
+    search_fields = ['user_id']
