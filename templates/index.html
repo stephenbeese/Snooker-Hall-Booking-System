@@ -96,8 +96,8 @@
 <section>
 <div class="row text-white">
     <div class="col-12 col-md-7">
-        <h3 class="text-center">Where to find us</h3>
-        <div class="row">
+        <h3 class="text-center mb-3 fw-bold">Where to find us</h3>
+        <div class="row mb-4">
             <div class="col-5">
                 <div class="address">
                     <p class="fw-bold">Address</p>
@@ -110,25 +110,25 @@
                     <p>Phone Number: 01234567890 <br> Email: info@147club.com</p>
                 </div>
             </div>
-            <div class="col-7">
-
+            <div class="col-6 col-md-7 justify-content-evenly">
+                <div id="map"></div>
             </div>
         </div>
     </div>
     <div class="col-12 col-md-5">
         <div class="row text-white">
             <div class="col-10 offset-1 text-center">
-                <h3>Testimonials</h3>
+                <h3 class="mb-3 fw-bold">Testimonials</h3>
             </div>
         {% for testimonial in testimonial_list %}
             {% if testimonial.approved %}
-            <div class="col-10 offset-1">
+            <div class="col-10 offset-1 testimonial">
                 <p>{{ testimonial.comment }}</p>
                 <p>By <span class="fw-bold">{{ testimonial.user_id }}</span> on <span class="fw-bold">{{ testimonial.created_on }}</span></p>
+                <hr>
             </div>
             {% endif %}
         {% endfor %}
-        </div>
     </div>
 </div>
 </section>
