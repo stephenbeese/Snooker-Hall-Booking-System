@@ -58,3 +58,35 @@ body {
 #snooker-button {
   margin-bottom: 30px;
 }
+
+.home-card {
+  background-color: rgba(255, 0, 50, 0.8);
+  min-height: fit-content;
+  max-height: 100vh;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.home-card h4 {
+  font-weight: 700;
+  padding-top: 10px;
+}
+
+.home-card hr {
+  margin: 0;
+}
+
+.tagline {
+  font-size: 1.15em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tagline-comment {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.address {
+  margin-left: 40px;
+}
