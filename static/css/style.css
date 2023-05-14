@@ -1,12 +1,6 @@
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  margin: 0;
-  padding: 0;
   background-color: black;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Base.html */
@@ -17,96 +11,50 @@ body {
 
 #logo-text {
   font-size: 1.3em;
-}
-
-#home-image {
-  /* background-image: url('../images/snooker-home.jpg'); */
-  height: 50vh;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* text-align: center; */
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .navbar-brand {
   margin-bottom: -10px;
 }
 
-#navbarSupportedContent {
-  margin: auto 0;
-  position: relative;
-  top: -5px;
-}
+/* index.html */
 
-footer {
-  margin-top: auto;
-}
-
-.c-item {
+.carousel .carousel-item {
   height: 70vh;
 }
 
-.c-img {
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.7);
-}
-
-.c-img:hover {
-  filter: brightness(0.7) blur(1.2px);
-}
-
-.c-item:hover {
-  border-color: unset;
-}
-
-
-
-/* index.html */
-
-.placeholder-div {
-  height: 50vh;
-}
-
-.yellow {
-  background-color: rgb(236 238 47);
-}
-
-.brown {
-  background-color: rgb(132 98 46);
-}
-
-.green {
-  background-color: rgb(91 190 47);
-}
-
-.home-card {
-  border-radius: 15px;
-  height: 200px;
-}
-
-.home-card-text {
-  margin: auto;
-}
-
-#wrap {
-  min-height: 1500px;
-}
-
-#main {
-  overflow:auto;
-  padding-bottom:150px;
-}
-
-.footer {
+.carousel-item img {
   position: relative;
-  margin-top: -150px;
-  height: 150px;
-  clear:both;
-  padding-top:20px;
-} 
+  object-fit: cover;
+  min-height: 70vh;
+  max-height: 110%;
+}
 
-.margin-none {
-  margin: 0;
+.caption {
+  background-color: rgba(33, 37, 41, 0.65);
+  margin-bottom: auto;
+  width: fit-content;
+  text-align: center;
+}
+
+.caption h2 {
+  margin: 15px;
+  font-size: 3.7em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.caption p {
+  font-size: 1.1em;
+  margin: 10px 10px 0 10px;
+}
+
+.caption button {
+  margin-bottom: 15px;
+}
+
+#snooker-button {
+  margin-bottom: 30px;
 }
