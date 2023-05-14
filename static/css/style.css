@@ -101,4 +101,22 @@ body {
 
 .testimonial hr {
   width: 80%;
+  margin: 10px auto;
+}
+
+/* Sign up */
+
+.signup {
+  background-color: rgba(255, 0, 50, 0.65);
+  border-radius: 15px;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.signup h1 {
+  font-weight: 600;
+}
+
+.signup input {
+  border-radius: 2%;
 }
