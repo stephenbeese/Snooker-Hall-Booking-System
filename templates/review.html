@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% if reviewed %}
+    <div class="container signup-container">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
+                <h1 class="pb-3">Thanks for leaving us a review!</h1>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container signup-container">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
+                <h1>Leave us a Review!</h1>
+                <p>Reviewing as: {{ user.username }}</p>
+                <form method="post" action="{% url 'review' %}">
+                    {{ testimonial_form | crispy }}
+                    {% csrf_token %}
+                    <button class="btn btn-dark justify-content-cent m-4" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
