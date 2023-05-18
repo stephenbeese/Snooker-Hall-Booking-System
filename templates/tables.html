@@ -1,0 +1,71 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<section class="text-center text-white">
+    <h1 class="mt-3">Our Tables</h1>
+
+
+    <h3>Snooker</h3>
+    <div class="container-fluid">
+        <div class="row justify-content-evenly">
+            {% for table in tables %}
+            {% if table.game_type == 0 %}
+            <div class="col-md-3 red-box mt-3 mb-3">
+                <img class="table-image" src="{{ table.image.url }}" alt="Snooker {{ table.table_number}}">
+                <p class="fw-bold">Table {{ table.table_number }} - Snooker</p>
+                <p>Price: £{{ table.price | floatformat:2 }} p/h</p>
+                <p>Available from {{ table.available_from }} - {{ table.available_to }}</p>
+            </div>
+            {% endif %}
+            {% if forloop.counter0|divisibleby:3 %}
+            </div>
+            <div class="row justify-content-evenly">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <h3>English Pool</h3>
+    <div class="container-fluid">
+        <div class="row justify-content-evenly">
+            {% for table in tables %}
+            {% if table.game_type == 1 %}
+            <div class="col-3 red-box mt-3 mb-3">
+                <img class="table-image" src="{{ table.image.url }}" alt="English Pool {{ table.table_number}}">
+                <p>Table {{ table.table_number }} - Pool</p>
+                <p>Price: £{{ table.price | floatformat:2 }} p/h</p>
+                <p>Available from {{ table.available_from }} - {{ table.available_to }}</p>
+            </div>
+            {% endif %}
+            {% if forloop.counter0|divisibleby:3 %}
+        </div>
+        <div class="row justify-content-evenly">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <h3>American Pool</h3>
+    <div class="container-fluid">
+        <div class="row justify-content-evenly">
+            {% for table in tables %}
+            {% if table.game_type == 2 %}
+            <div class="col-3 red-box mt-3 mb-3">
+                <img class="table-image" src="{{ table.image.url }}" alt="American Pool {{ table.table_number}}">
+                <p>Table {{ table.table_number }} - American Pool</p>
+                <p>Price: £{{ table.price | floatformat:2 }} p/h</p>
+                <p>Available from {{ table.available_from }} - {{ table.available_to }}</p>
+            </div>
+            {% endif %}
+            {% if forloop.counter0|divisibleby:3 %}
+        </div>
+        <div class="row justify-content-evenly">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

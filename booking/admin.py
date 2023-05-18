@@ -4,7 +4,7 @@ from .models import GameTable, Reservation, Testimonial, DateOfBirth
 
 @admin.register(GameTable)
 class GameTableAdmin(admin.ModelAdmin):
-    list_display = ('game_id', 'game_type', 'available_from', 'available_to', 'price', 'status')
+    list_display = ('table_number', 'game_type', 'available_from', 'available_to', 'price', 'status')
     list_filter = ('game_type', 'status')
     search_fields = ['game_type']
 

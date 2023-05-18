@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-{% load crispy_forms_tags %}
 <section>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <!-- <div id="carouselExampleIndicators" class="carousel slide"> -->
@@ -125,17 +124,17 @@
                     <h3 class="mb-3 fw-bold text-center">Testimonials</h3>
                     {% for testimonial in testimonial_list %}
                     {% if testimonial.approved %}
-                    <div class="col-10 offset-1 testimonial overflow-auto">
+                    <div class="col-10 offset-1 testimonial overflow-scroll">
                         <p>{{ testimonial.comment }}</p>
                         <p>By <span class="fw-bold">{{ testimonial.user_id }}</span> on <span
                                 class="fw-bold">{{ testimonial.created_on }}</span></p>
                         <hr>
                     </div>
                     {% endif %}
+                    {% endfor %}
                     <p>Have you been here before?
                         <a href="{% url 'review' %}" class="text-white">Leave us a review!</a>
                     </p>
-                    {% endfor %}
                 </div>
             </div>
         </div>

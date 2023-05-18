@@ -97,6 +97,7 @@ body {
 
 .testimonial {
   max-width: 90%;
+  max-height: 500px;
 }
 
 .testimonial hr {
@@ -106,7 +107,7 @@ body {
 
 /* Sign up */
 
-.signin, .signout, .signup-container {
+.red-box {
   background-color: rgba(255, 0, 50, 0.65);
   border-radius: 15px;
   min-width: fit-content;
@@ -121,3 +122,21 @@ body {
 .signup input {
   border-radius: 2%;
 }
+
+
+
+/* Tables Page */
+
+.table-image {
+  margin: 20px 0px;
+  max-width: 30vh;
+}
+
+.table-image ~ p {
+  margin-bottom: 10px;
+}
+
+.table-image ~ p:last-of-type {
+  margin-bottom: 20px;
+}
+

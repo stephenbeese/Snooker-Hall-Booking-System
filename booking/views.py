@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Testimonial
+from .models import Testimonial, GameTable
 from .forms import TestimonialForm
 
 
@@ -40,3 +40,12 @@ class Testimonial(View):
                 "testimonial_form": testimonial_form
             },
         )
+
+
+class GameTables(generic.ListView):
+    model = GameTable
+    template_name = 'tables.html'
+    context_object_name = 'tables'
+
+    # def get_queryset(self):
+    #     return GameTable.objects.all()
