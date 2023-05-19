@@ -140,3 +140,19 @@ body {
   margin-bottom: 20px;
 }
 
+.table-div {
+  min-width: fit-content;
+  max-width: 25vw;
+}
+
+.our-tables {
+  font-size: 3em;
+}
+
+.tables-heading {
+  font-size: 2.5em;
+}
+
+.table-hr {
+  max-width: 80vw;
+}

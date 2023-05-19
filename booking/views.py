@@ -46,6 +46,7 @@ class GameTables(generic.ListView):
     model = GameTable
     template_name = 'tables.html'
     context_object_name = 'tables'
+    ordering = 'table_number'
 
     # def get_queryset(self):
     #     return GameTable.objects.all()
