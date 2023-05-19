@@ -105,6 +105,17 @@ body {
   margin: 10px auto;
 }
 
+.testimonial-box {
+  background-color: black;
+  max-height: 300px;
+  margin-bottom: 20px;
+}
+
+.index-hr {
+  max-width: 80%;
+  margin: 10px auto;
+}
+
 /* Sign up */
 
 .red-box {

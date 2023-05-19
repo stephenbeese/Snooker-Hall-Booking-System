@@ -100,6 +100,7 @@
     <div class="row text-white vw-100">
         <div class="col-12 col-md-7">
             <h3 class="text-center mb-3 fw-bold">Where to find us</h3>
+            <hr class="index-hr">
             <div class="row mb-4">
                 <div class="col-5">
                     <div class="address">
@@ -122,17 +123,20 @@
             <div class="row text-white">
                 <div class="col-10 offset-1">
                     <h3 class="mb-3 fw-bold text-center">Testimonials</h3>
-                    {% for testimonial in testimonial_list %}
-                    {% if testimonial.approved %}
-                    <div class="col-10 offset-1 testimonial overflow-scroll">
-                        <p>{{ testimonial.comment }}</p>
-                        <p>By <span class="fw-bold">{{ testimonial.user_id }}</span> on <span
-                                class="fw-bold">{{ testimonial.created_on }}</span></p>
-                        <hr>
+                    <hr class="index-hr">
+                    <div class="testimonial-box overflow-scroll">
+                        {% for testimonial in testimonial_list %}
+                        {% if testimonial.approved %}
+                        <div class="col-10 offset-1 testimonial">
+                            <p>{{ testimonial.comment }}</p>
+                            <p>By <span class="fw-bold">{{ testimonial.user_id }}</span> on <span
+                                    class="fw-bold">{{ testimonial.created_on }}</span></p>
+                            <hr class="index-hr">
+                        </div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                    {% endfor %}
-                    <p>Have you been here before?
+                    <p class="text-center mb-3">Have you been here before?<br>
                         <a href="{% url 'review' %}" class="text-white">Leave us a review!</a>
                     </p>
                 </div>
