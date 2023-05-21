@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['snooker-hall-booking-system.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['snooker-hall-booking-system.herokuapp.com', 'localhost', '8000-stephenbees-snookerhall-53kkfi4zwft.ws-eu97.gitpod.io']
 
 
 # Application definition

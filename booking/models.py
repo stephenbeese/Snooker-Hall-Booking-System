@@ -16,26 +16,27 @@ class GameTable(models.Model):
     image = CloudinaryField('image', default='placeholder')
 
     class Meta:
-        ordering = ['-game_type']
+        ordering = ['-table_number']
 
     def __str__(self):
+        # return f"{self.table_number}"
         if self.game_type == 0:
-            return f"Snooker table number: {self.table_number}, status: {self.status}"
+            return f"{self.table_number} - Snooker"
         elif self.game_type == 1:
-            return f"English Pool table number: {self.table_number}, status: {self.status}"
+            return f"{self.table_number} - English Pool"
         else:
-            return f"American table number: {self.table_number}, status: {self.status}"
+            return f"{self.table_number} - American Pool"
 
 
 class Reservation(models.Model):
     booking_id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_bookings")
-    table_number = models.ForeignKey(GameTable(), on_delete=models.CASCADE, related_name="table_bookings")
+    table_number = models.ForeignKey(GameTable, on_delete=models.CASCADE, related_name="table_bookings")
     name = models.CharField(max_length=40)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    total_price = models.IntegerField()
+    total_price = models.DecimalField(decimal_places=2, max_digits=5)
 
     class Meta:
         ordering = ['-date']

@@ -11,7 +11,7 @@ class GameTableAdmin(admin.ModelAdmin):
 
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
-    list_display = ('booking_id', 'user_id', 'name', 'date', 'start_time', 'end_time', 'total_price')
+    list_display = ('booking_id', 'table_number', 'user_id', 'name', 'date', 'start_time', 'end_time', 'total_price')
     list_filter = ('date', 'start_time', 'end_time')
     search_fields = ['name', 'date']
 
