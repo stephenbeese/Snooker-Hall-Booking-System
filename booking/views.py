@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
 from django.views import generic, View
-from .models import Testimonial, GameTable
+from .models import Testimonial, GameTable, Reservation
 from .forms import TestimonialForm, ReservationForm
 
 
@@ -82,6 +82,13 @@ class ReservationView(View):
             reservation.total_price = total_price
 
             form.save()
-            return redirect('home')
+            return redirect('bookings')
 
         return render(request, 'reservation.html', context)
+
+
+class UserBookings(generic.ListView):
+    model = Reservation
+    template_name = 'bookings.html'
+    context_object_name = 'bookings'
+    ordering = 'date'

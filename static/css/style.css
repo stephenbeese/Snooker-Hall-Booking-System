@@ -123,7 +123,6 @@ body {
   border-radius: 15px;
   min-width: fit-content;
   max-width: 50%;
-  margin-top: auto;
 }
 
 .signup h1 {
@@ -166,4 +165,30 @@ body {
 
 .table-hr {
   max-width: 80vw;
+}
+
+
+
+/* My Bookings */
+
+
+.row-hover:hover{
+  background-color: rgba(255, 0, 50, 0.65);
+}
+
+.nav-tabs .nav-link.active {
+  background-color: rgba(255, 0, 50, 0.65); 
+}
+
+.red-background {
+  background-color: rgba(255, 0, 50, 0.65); 
+  /* border-color: white;
+  border- */
+  border: 1px solid #dee2e6;
+}
+
+.booking-table {
+  min-width: fit-content;
+  max-width: 80vw;
+  margin: 10px auto 20px;
 }
