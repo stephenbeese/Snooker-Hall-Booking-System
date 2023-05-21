@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from django.views import generic, View
 from .models import Testimonial, GameTable, Reservation
 from .forms import TestimonialForm, ReservationForm
+from django import template
+
+register = template.Library()
 
 
 class Home(generic.ListView):
