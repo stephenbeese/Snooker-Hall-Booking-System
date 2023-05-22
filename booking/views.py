@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Testimonial, GameTable, Reservation
 from .forms import TestimonialForm, ReservationForm
@@ -95,3 +95,37 @@ class UserBookings(generic.ListView):
     template_name = 'bookings.html'
     context_object_name = 'bookings'
     ordering = 'date'
+
+
+class EditBooking(View):
+    def get(self, request, booking_id):
+        booking = get_object_or_404(Reservation, booking_id=booking_id)
+        form = ReservationForm(instance=booking)
+        context = {
+            'form': form
+            }
+        return render(request, 'edit_booking.html', context)
+
+    def post(self, request, booking_id):
+        booking = get_object_or_404(Reservation, booking_id=booking_id)
+        if request.method == 'POST':
+            form = ReservationForm(request.POST, instance=booking)
+            if form.is_valid():
+                reservation = form.save(commit=False)
+                game_table = form.cleaned_data.get('table_number')
+                reservation.table_number = game_table
+
+                # calculate total_price
+                start_time = datetime.combine(datetime.today(), reservation.start_time)
+                end_time = datetime.combine(datetime.today(), reservation.end_time)
+                time_difference = end_time - start_time
+                total_price = (time_difference.total_seconds() / 3600) * game_table.price
+                reservation.total_price = total_price
+                
+                form.save()
+                return redirect('bookings')
+        form = ReservationForm(instance=booking)
+        context = {
+            'form': form
+        }
+        return render(request, 'edit_booking.html', context)

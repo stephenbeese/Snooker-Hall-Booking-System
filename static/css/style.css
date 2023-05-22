@@ -3,6 +3,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.main {
+  flex: 1;
+}
+
 /* Base.html */
 #logo {
   height: 80px;

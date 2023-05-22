@@ -58,6 +58,7 @@
                                 <th scope="col">Start Time</th>
                                 <th scope="col">End Time</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Edit</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
@@ -70,6 +71,7 @@
                                 <td>{{ booking.start_time }}</td>
                                 <td>{{ booking.end_time }}</td>
                                 <td>£{{ booking.total_price }}</td>
+                                <td><a href="/edit_booking/{{ booking.booking_id }}"><button>Edit</button></a></td>
                             </tr>
                             {% endif %}
                             {% endfor %}
