@@ -148,18 +148,3 @@ class DeleteBooking(View):
         booking = get_object_or_404(Reservation, booking_id=booking_id)
         booking.delete()
         return redirect('bookings')
-
-
-# class DeleteBooking(View):
-
-#     def get(self, request, booking_id):
-#         booking = get_object_or_404(Reservation, booking_id=booking_id)
-#         context = {
-#             'booking': booking
-#         }
-#         return render(request, 'confirm_delete.html', context)
-
-#     def post(self, request, booking_id):
-#         booking = get_object_or_404(Reservation, booking_id=booking_id)
-#         booking.delete()
-#         return redirect('bookings')
