@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center text-white red-box">
+            <h1>Delete Booking?</h1>
+            <p>Are you sure you want to delete the following booking?</p>
+            <!-- Display booking details -->
+            <p>Booking ID: {{ booking.booking_id }}</p>
+            <p>Booking Date: {{ booking.date }}</p>
+            <p>From: {{ booking.start_time }}</p>
+            <p>To: {{ booking.end_time }}</p>
+            <p>Table: {{ booking.table_number }}</p>
+            <p>Price: £{{ booking.total_price }}</p>
+
+            <!-- ... -->
+            <form action="{% url 'delete_booking' booking.booking_id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark">Confirm</button>
+                <a href="{% url 'bookings' %}"><button class="btn btn-dark">Cancel</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

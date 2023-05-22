@@ -121,7 +121,7 @@ class EditBooking(View):
                 time_difference = end_time - start_time
                 total_price = (time_difference.total_seconds() / 3600) * game_table.price
                 reservation.total_price = total_price
-                
+
                 form.save()
                 return redirect('bookings')
         form = ReservationForm(instance=booking)
@@ -129,3 +129,37 @@ class EditBooking(View):
             'form': form
         }
         return render(request, 'edit_booking.html', context)
+
+
+class ConfirmDelete(View):
+    def get(self, request, booking_id):
+        booking = get_object_or_404(Reservation, booking_id=booking_id)
+        context = {'booking': booking}
+        return render(request, 'confirm_delete.html', context)
+
+
+class DeleteBooking(View):
+    def get(self, request, booking_id):
+        booking = get_object_or_404(Reservation, booking_id=booking_id)
+        context = {'booking': booking}
+        return render(request, 'confirm_delete.html', context)
+
+    def post(self, request, booking_id):
+        booking = get_object_or_404(Reservation, booking_id=booking_id)
+        booking.delete()
+        return redirect('bookings')
+
+
+# class DeleteBooking(View):
+
+#     def get(self, request, booking_id):
+#         booking = get_object_or_404(Reservation, booking_id=booking_id)
+#         context = {
+#             'booking': booking
+#         }
+#         return render(request, 'confirm_delete.html', context)
+
+#     def post(self, request, booking_id):
+#         booking = get_object_or_404(Reservation, booking_id=booking_id)
+#         booking.delete()
+#         return redirect('bookings')
