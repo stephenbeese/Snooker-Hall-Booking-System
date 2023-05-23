@@ -134,8 +134,8 @@ body {
 .red-box {
   background-color: rgba(255, 0, 50, 0.65);
   border-radius: 15px;
-  min-width: fit-content;
-  max-width: 50%;
+  min-width: 50vw;
+  max-width: fit-content;
 }
 
 .signup h1 {
@@ -208,4 +208,22 @@ body {
   min-width: fit-content;
   max-width: 80vw;
   margin: 10px auto 20px;
+}
+
+/* Error Messages */
+
+.errorlist {
+  margin: 0;
+  padding: 0;
+}
+
+.errorlist li {
+  background-color: #010101;
+  list-style-type: none;
+  margin: 15px auto;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  max-width: 45%;
+  border: 1px solid;
 }

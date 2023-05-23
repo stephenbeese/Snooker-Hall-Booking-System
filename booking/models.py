@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
@@ -40,6 +41,17 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+    def clean(self):
+        # Check if there are any existing reservations with overlapping times on the same table
+        conflicting_reservations = Reservation.objects.filter(
+            table_number=self.table_number,
+            date=self.date,
+            start_time__lt=self.end_time,
+            end_time__gt=self.start_time
+        )
+        if conflicting_reservations.exists():
+            raise ValidationError("This table is already booked for the selected time. Please try a different table.")
 
     def __str__(self):
         return f"Booked by {self.name} for {self.date} at {self.start_time}"

@@ -7,12 +7,13 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 text-white text-center red-box">
-            <h1>Book now!</h1>
-            <p>Booking as: {{ user.username }}</p>
+            <h1 class="mt-3 fw-bold">Book now!</h1>
+            <p>Booking as: <span class="fw-bold">{{ user.username }}</span></p>
             <form method="post">
                 {% csrf_token %}
+                
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button type="submit" class="btn btn-dark mb-3">Submit</button>
             </form>
         </div>
     </div>

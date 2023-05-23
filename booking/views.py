@@ -84,6 +84,18 @@ class ReservationView(View):
             total_price = (time_difference.total_seconds() / 3600) * game_table.price
             reservation.total_price = total_price
 
+            # Custom validation to prevent user booking two tables at conflicting times
+            conflicting_user_reservations = Reservation.objects.filter(
+                user_id=request.user,
+                date=reservation.date,
+                start_time__lt=reservation.end_time,
+                end_time__gt=reservation.start_time
+            ).exclude(pk=reservation.pk)
+
+            if conflicting_user_reservations.exists():
+                form.add_error(None, "You have already booked another table for the selected time. Please select a different date/time")
+                return render(request, 'reservation.html', context)
+
             form.save()
             return redirect('bookings')
 
