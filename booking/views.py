@@ -108,7 +108,6 @@ class UserBookings(generic.ListView):
     context_object_name = 'bookings'
     ordering = 'date'
 
-
 class EditBooking(View):
     def get(self, request, booking_id):
         booking = get_object_or_404(Reservation, booking_id=booking_id)

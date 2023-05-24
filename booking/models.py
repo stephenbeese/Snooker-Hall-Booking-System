@@ -15,7 +15,7 @@ class GameTable(models.Model):
     price = models.FloatField()
     status = models.IntegerField(choices=STATUS, default=0)
     image = CloudinaryField('image', default='placeholder')
-
+    
     class Meta:
         ordering = ['-table_number']
 
