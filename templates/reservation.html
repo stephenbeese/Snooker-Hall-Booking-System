@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-dark mb-3">Submit</button>
+                <button type="submit" class="btn btn-dark mb-3 fw-bold">Submit</button>
             </form>
         </div>
     </div>
@@ -25,12 +25,13 @@
         <div class="col-12 text-white text-center red-box">
             <h1 class="fw-bold">Book Now!</h1>
             <div>
-                <p><span class="fw-bold">Oops!</span><br>Looks like you're not logged in...</p>
-                <a href="{% url 'account_login' %}" class="text-white fw-bold"><button class="btn btn-dark">Sign In</button></a>
+                <p class="fw-bold m-0">Oops!</p>
+                <p class="mb-0">Looks like you're not logged in...</p>
+                <a href="{% url 'account_login' %}" class="text-white fw-bold btn btn-dark mb-3 mt-1">Sign In</a>
             </div>
             <div>
                 <p class="mb-0">Don't have an account?</p>
-                <a href="{% url 'account_signup' %}" class="text-white fw-bold"><button class="btn btn-dark">Sign Up</button></a>
+                <a href="{% url 'account_signup' %}" class="text-white fw-bold btn btn-dark mb-3 mt-1">Sign Up</a>
             </div>
         </div>
     </div>

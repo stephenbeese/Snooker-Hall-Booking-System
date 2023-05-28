@@ -28,7 +28,7 @@
                         <tbody class="table-group-divider">
                             {% for booking in bookings %}
                             {% if booking.user_id == user %}
-                            <tr class="row-hover">
+                            <tr class="row-hover align-middle">
                                 <td class="fw-bold text-center">{{ booking.booking_id }}</td>
                                 <td>{{ booking.table_number }}</td>
                                 <td>{{ booking.date }}</td>
@@ -62,14 +62,14 @@
                         <tbody class="table-group-divider">
                             {% for booking in bookings %}
                             {% if booking.user_id == user %}
-                            <tr class="row-hover">
+                            <tr class="row-hover align-middle">
                                 <td class="fw-bold text-center">{{ booking.booking_id }}</td>
                                 <td>{{ booking.table_number }}</td>
                                 <td>{{ booking.date }}</td>
                                 <td>{{ booking.start_time }} - {{ booking.end_time }}</td>
                                 <td>£{{ booking.total_price }}</td>
-                                <td class="align-middle"><a href="/edit_booking/{{ booking.booking_id }}"><button class="btn btn-dark">Edit</button></a></td>
-                                <td class="align-middle"><a href="{% url 'confirm_delete' booking.booking_id %}"><button class="btn btn-dark">Delete</button></a></td>
+                                <td><a href="/edit_booking/{{ booking.booking_id }}"><button class="btn btn-dark fw-bold">Edit</button></a></td>
+                                <td><a href="{% url 'confirm_delete' booking.booking_id %}"><button class="btn btn-dark fw-bold">Delete</button></a></td>
                             </tr>
                             {% endif %}
                             {% endfor %}

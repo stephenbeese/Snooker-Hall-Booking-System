@@ -5,24 +5,20 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 text-center text-white red-box">
-            <h1>Delete Booking?</h1>
-            <p>Are you sure you want to delete the following booking?</p>
+            <h1 class="mt-2 fw-bold">Delete Booking?</h1>
             <!-- Display booking details -->
-            <p>Booking ID: {{ booking.booking_id }}</p>
-            <p>Booking Date: {{ booking.date }}</p>
-            <p>From: {{ booking.start_time }}</p>
-            <p>To: {{ booking.end_time }}</p>
-            <p>Table: {{ booking.table_number }}</p>
+            <p class="mt-4">Booking ID: {{ booking.booking_id }}</p>
+            <p>Table {{ booking.table_number }}</p>
+            <p>Date: {{ booking.date }}</p>
+            <p>Time: {{ booking.start_time }} - {{ booking.end_time }}</p>
             <p>Price: £{{ booking.total_price }}</p>
 
-            <!-- ... -->
+            <p class="mb-0 fw-bold">Are you sure you want to delete this booking?<br>This action cannot be undone</p>
             <form action="{% url 'delete_booking' booking.booking_id %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-dark">Confirm</button>
-                <!-- <a href="{% url 'bookings' %}"><button class="btn btn-dark">Cancel</button></a> -->
+                <button type="submit" class="btn btn-dark m-3 fw-bold">Confirm</button>
+                <a href="{% url 'bookings' %}"><button class="btn btn-dark m-3 fw-bold">Cancel</button></a>
             </form>
-            <a href="{% url 'bookings' %}"><button class="btn btn-dark">Cancel</button></a>
-
         </div>
     </div>
 </div>

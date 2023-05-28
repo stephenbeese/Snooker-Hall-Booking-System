@@ -38,7 +38,7 @@
             {% if table.game_type == 1 %}
             <div class="col-6 col-md-4 red-box m-3 table-div">
                 <img class="table-image" src="{{ table.image.url }}" alt="English Pool {{ table.table_number}}">
-                <p class="fw-bold">Table {{ table.table_number }} - English Pool</p>
+                <p class="fw-bold mb-0">Table {{ table.table_number }} - English Pool</p>
                 <p>Price: £{{ table.price | floatformat:2 }} p/h</p>
                 <p>Available from {{ table.available_from }} - {{ table.available_to }}</p>
             </div>
@@ -59,7 +59,7 @@
             {% if table.game_type == 2 %}
             <div class="col-6 col-md-4 red-box m-3 table-div">
                 <img class="table-image" src="{{ table.image.url }}" alt="American Pool {{ table.table_number}}">
-                <p class="fw-bold">Table {{ table.table_number }} - American Pool</p>
+                <p class="fw-bold mb-0">Table {{ table.table_number }} - American Pool</p>
                 <p>Price: £{{ table.price | floatformat:2 }} p/h</p>
                 <p>Available from {{ table.available_from }} - {{ table.available_to }}</p>
             </div>

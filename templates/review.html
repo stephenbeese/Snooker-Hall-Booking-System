@@ -22,7 +22,7 @@
                 <form method="post" action="{% url 'review' %}">
                     {{ testimonial_form | crispy }}
                     {% csrf_token %}
-                    <button class="btn btn-dark justify-content-cent m-4" type="submit">Submit</button>
+                    <button class="btn btn-dark justify-content-cent m-4 fw-bold" type="submit">Submit</button>
                 </form>
             </div>
         </div>
