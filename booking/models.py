@@ -20,7 +20,6 @@ class GameTable(models.Model):
         ordering = ['-table_number']
 
     def __str__(self):
-        # return f"{self.table_number}"
         if self.game_type == 0:
             return f"{self.table_number} - Snooker"
         elif self.game_type == 1:
@@ -43,6 +42,10 @@ class Reservation(models.Model):
         ordering = ['-date']
 
     def clean(self):
+        # Check if the end time is earlier than or equal to the start time
+        if self.end_time <= self.start_time:
+            raise ValidationError("End time should be later than the start time.")
+
         # Check if there are any existing reservations with overlapping times on the same table
         conflicting_reservations = Reservation.objects.filter(
             table_number=self.table_number,

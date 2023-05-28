@@ -14,7 +14,7 @@ class Home(generic.ListView):
     template_name = 'index.html'
 
 
-class Testimonial(View):
+class TestimonialView(View):
     def get(self, request):
         return render(
             request,
