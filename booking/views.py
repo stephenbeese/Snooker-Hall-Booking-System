@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Testimonial, GameTable, Reservation
@@ -102,11 +102,42 @@ class ReservationView(View):
         return render(request, 'reservation.html', context)
 
 
+# class UserBookings(generic.ListView):
+#     model = Reservation
+#     template_name = 'bookings.html'
+#     context_object_name = 'bookings'
+#     ordering = '-date'
+
+#     def get_queryset(self):
+#         today = date.today()
+#         if self.request.user.is_authenticated:
+#             user_bookings = Reservation.objects.filter(user_id=self.request.user)
+#             past_bookings = user_bookings.filter(date__lt=today).order_by('-date')
+#             future_bookings = user_bookings.filter(date__gte=today).order_by('date')
+#             return list(past_bookings) + list(future_bookings)
+
+
 class UserBookings(generic.ListView):
     model = Reservation
     template_name = 'bookings.html'
-    context_object_name = 'bookings'
-    ordering = 'date'
+    context_object_name = 'past_bookings'  # Update context_object_name
+
+    def get_queryset(self):
+        today = date.today()
+        if self.request.user.is_authenticated:
+            user_bookings = Reservation.objects.filter(user_id=self.request.user)
+            past_bookings = user_bookings.filter(date__lt=today).order_by('-date')
+            future_bookings = user_bookings.filter(date__gte=today).order_by('date')
+            return past_bookings  # Return only the past bookings queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        today = date.today()
+        if self.request.user.is_authenticated:
+            user_bookings = Reservation.objects.filter(user_id=self.request.user)
+            context['future_bookings'] = user_bookings.filter(date__gte=today).order_by('date')
+        return context
+
 
 class EditBooking(View):
     def get(self, request, booking_id):

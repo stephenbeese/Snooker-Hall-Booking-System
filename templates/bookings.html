@@ -26,8 +26,8 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            {% for booking in bookings %}
-                            {% if booking.user_id == user %}
+                            {% for booking in past_bookings %}
+                            {% if booking.user_id == request.user %}
                             <tr class="row-hover align-middle">
                                 <td class="fw-bold text-center">{{ booking.booking_id }}</td>
                                 <td>{{ booking.table_number }}</td>
@@ -60,8 +60,8 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            {% for booking in bookings %}
-                            {% if booking.user_id == user %}
+                            {% for booking in future_bookings %}
+                            {% if booking.user_id == request.user %}
                             <tr class="row-hover align-middle">
                                 <td class="fw-bold text-center">{{ booking.booking_id }}</td>
                                 <td>{{ booking.table_number }}</td>
