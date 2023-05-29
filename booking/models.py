@@ -21,7 +21,7 @@ class GameTable(models.Model):
 
     class Meta:
         """Orders the games tables by table number """
-        ordering = ['-table_number']
+        ordering = ['table_number']
 
     def __str__(self):
         if self.game_type == 0:
