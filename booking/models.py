@@ -8,6 +8,9 @@ GAME = ((0, "Snooker"), (1, "English Pool"), (2, "American Pool"))
 
 
 class GameTable(models.Model):
+    """
+    This stores the Snooker and Pool tables able to be booked
+    """
     table_number = models.IntegerField(primary_key=True)
     game_type = models.IntegerField(choices=GAME)
     available_from = models.TimeField()
@@ -15,8 +18,9 @@ class GameTable(models.Model):
     price = models.FloatField()
     status = models.IntegerField(choices=STATUS, default=0)
     image = CloudinaryField('image', default='placeholder')
-    
+
     class Meta:
+        """Orders the games tables by table number """
         ordering = ['-table_number']
 
     def __str__(self):
@@ -29,6 +33,9 @@ class GameTable(models.Model):
 
 
 class Reservation(models.Model):
+    """
+    This stores the all the booking information
+    """
     booking_id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_bookings")
     table_number = models.ForeignKey(GameTable, on_delete=models.CASCADE, related_name="table_bookings")
@@ -39,6 +46,7 @@ class Reservation(models.Model):
     total_price = models.DecimalField(decimal_places=2, max_digits=5)
 
     class Meta:
+        """Orders the reservations date"""
         ordering = ['-date']
 
     def clean(self):
@@ -61,6 +69,10 @@ class Reservation(models.Model):
 
 
 class Testimonial(models.Model):
+    """
+    Stores comments submitted by users.
+    Each testimonial has to be approved by an admin before its displayed
+    """
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="testimonials")
     name = models.CharField(max_length=40)
     comment = models.TextField()
@@ -68,18 +80,8 @@ class Testimonial(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        """Orders testimonials be the created on date"""
         ordering = ['-created_on']
 
     def __str__(self):
         return f"Comment: {self.comment} by {self.name}"
-
-
-class DateOfBirth(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="birth_date")
-    birth_date = models.DateField()
-
-    class Meta:
-        ordering = ['-user_id']
-
-    def __str__(self):
-        return f"User {self.user_id}'s birthday is {self.birth_date}"
