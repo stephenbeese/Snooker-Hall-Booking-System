@@ -207,3 +207,4 @@ class TestimonialTestCase(TestCase):
         testimonials = Testimonial.objects.all()
         expected_order = [testimonial3, testimonial2, self.testimonial]
         self.assertEqual(list(testimonials), expected_order)
+

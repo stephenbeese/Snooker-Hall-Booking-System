@@ -4,7 +4,15 @@
  
 ## **About**
 <hr>
-This is a website for a Snooker and Pool hall built using Django. The aim of this site is for users to be able to create an account and be able to reserve a snooker or pool table for a given time in the future. The user also had CRUD functionality to manage their bookings and delete/edit if they are unable to make the booked time. This allows the user to change their mind and cancel or edit if they are no longer able to make their booking time. Having this functionality helps both the user and the owners of the club, as it would hopefully help restrict the amount of users unattending their slot. The user is also able to submit testimonials regarding their time at the snooker club in which the admin has the ability to approve them for the home page.
+This is a website for a Snooker hall built using Django. The aim of this site is for users to be able to create an account and be able to reserve a snooker or pool table for a given date and time in the future. 
+
+<br>
+This site features CRUD functionality so users can manage their bookings, as well as being able to edit and delete them if necessary. This allows the user to change their mind if they are no longer able to make their booking time without affecting the club's availability. Having this functionality helps both the user and the owners of the club, as it would help to reduce the amount of users unattending their slot as it can be easily updated.
+
+<br>
+The user is also able to submit testimonials regarding their time at the snooker club in which the admin has the ability to approve them for the home page.
+
+<br>
  
 ## **Features**
 <hr>
@@ -14,29 +22,32 @@ This is a website for a Snooker and Pool hall built using Django. The aim of thi
 #### **Booking System**
 - Create Booking 
 - View Booking
+- Update Booking
 - Delete Booking
-- Edit Booking
 
-Users are able to create, read, update and delete their bookings. Users must be logged in to use this functionality. This helps the admin know that the account is correct and 
+Users are able to create, read, update and delete their bookings. Users must be logged in to use this functionality.
 
-#### **Collapsable Navbar**
-- The navbar is set to become collapsable when viewed on medium size screens and below. This is beneficial as when the viewport width is smaller the navbar may become squashed. Having the navbar dropdown like this improves the UI and is intuitive the user.
-
-#### **Auto Scrolling Images**
-- The home page contains an auto scrolling carousel. The carousel contains images of the three cue sports available at the club. This immediately shows the user what the club has to offer. It also offers a 'Book Now!' button making it easy for the user to quickly get to the booking form page. 
-
-#### **Overflow Boxes**
-- The testimonial section includes a scrolling overflow box. This means that the size of the testimonial section will still remain a consistent size despite the amount of testimonials it contains. 
+#### **Account System**
+Users are able to create an account with Django's built in account system (AllAuth). Having this functionality allows users to be able to view their specific bookings. It also allows the admin to ensure that they know who is coming in for a booking. 
 
 #### **User Input Validation**
 - **No double bookings** - A user is unable to book a table if its already booking from another user for the time and date they desire.
 - **A user is unable to book two tables at once** - A user cannot book two different tables for the same date and time. This is to prevent large bookings and people accidently booking more than once.
-- **The submitted start time must be earlier than the end time** - This has to be the case as you can't have a booking with these inputs
-- **The selected start time can only be between 11:00:00 and 22:00:00** - This is to fit within the snooker halls opening times. The reason it is restricted like this is so you can't have a start time that starts when the club is closing.
-- **The selected end time can only be between 12:00:00 and 23:00:00** - This is to fit within the snooker halls opening times. The reason it is restricted like this is so you can't have an end time for when the club is opening.
+- **The submitted start time must be earlier than the end time** - This has to be the case as you can't have a booking with these form inputs
+- **The selected start time can only be between 11:00:00 and 22:00:00** - This is to fit within the snooker hall's opening times. The reason it is restricted like this is so you can't have a start time that starts when the club is closing.
+- **The selected end time can only be between 12:00:00 and 23:00:00** - This is to fit within the snooker hall's opening times. The reason it is restricted like this is so you can't have an end time for when the club is opening.
 - **The booked date cannot be in the past** - This makes sure that the booking is for the future and not the past. 
 
 If any of the above conditions are met. The user will be shown an error message corresponding to the given error. They will be asked to change the part that was causing the issue.
+
+#### **Collapsable Navbar**
+- The navbar is set to become collapsable when viewed on medium size screens and below. This is beneficial as when the viewport width is smaller the navbar becomes squashed. Having the navbar dropdown like this improves the UI and is intuitive the user.
+
+#### **Auto Scrolling Images**
+- The home page contains an auto scrolling carousel. The carousel contains images of the three cue sports available at the club. This immediately shows the user what the club has to offer. It also offers a 'Book Now!' button making it easy for the user to quickly get to the reservtion form page. 
+
+#### **Overflow Boxes**
+- The testimonial section includes a scrolling overflow box. This means that the size of the testimonial section will still remain a consistent size despite the amount of testimonials it contains. 
 
 #### **Testimonials**
 - Users have the ability to submit testimonials. 
@@ -47,7 +58,7 @@ If any of the above conditions are met. The user will be shown an error message 
 - The home page includes a Google Maps API to show the user the location of the club. This is useful to the user as they can see exactly where the club is and how to get there. It gives the user a more visual representation of the club's location. 
 
 #### **Cloudinary**
-- Cloudinary is used to store the images for the booking app. The Admin has a cloudinary field in the GameTable model where they can add an image to correspond with the the table they are uploading. This is easily updated or changed in the admin pannel
+- Cloudinary is used to store the images for the booking app. The Admin has a cloudinary field in the GameTable model where they can add an image to correspond with the the table they are uploading. These images are easily updated or removed in the admin pannel.
 
 #### **Close tables for maintenance**
 - The admin has the ability to give the tables in the GameTable model a status of 'Working' or 'Maintenance'. Doing this makes the table unable to be booked while the table has a status of 'Maintenance'. 
@@ -60,14 +71,14 @@ If any of the above conditions are met. The user will be shown an error message 
 ### **Future Features**
 These are some future features that I would like to add in the future.
 
-- Implement email confirmation of a booking to the user
-- Send reminders to the user of booking 1hr before time slot 
-- Payment/deposit
-- Suggest an alternative table if the user picks one that is unavailable
-- Email verification to ensure the email entered exists
-- login with social media and Google accounts
-- Store user's first name and last name in built in django app
-- Store the user's date of birth to ensure they are old enough to use the club.
+- **Implement email confirmation of a booking to the user** - Including email confirmation is common practice and makes the user feel more secure about their booking.
+- **Send reminders to the user of booking 1hr before time slot** - Sending reminders to the user before their slot will help reduce users unattending their slot.
+- **Payment or deposit** - Having an upfront payment or a deposit system will also help reduce users unattending their slot as they have already paid for it. Even if they do not attend the club will not miss out on payments and table time.
+- **Suggest an alternative table if the user picks one that is unavailable** - Having this functionality will make it easier for a user to create a booking, especially during busy periods. 
+- **Email verification to ensure the email entered exists** - Having email verification will ensure that the email entered is legit and corresponds to the user. This ensures that any future email confirmation will go to the correct place. 
+- **login with social media and Google accounts** - Logging in with social media or Google will make the signup process for the user very quickly. 
+- **Store user's first name and last name in built in django account system** - Storing the first and last name will mean that the user won't need to enter it when making a booking, it will be retrieved from the data base. This will make the booking process shorter and easier for the user.
+- **Store the user's date of birth** - Storing the users date of birth will allow the club to restrict people of a young age booking for late in the evening. As most clubs have restrictions regarding children being supervised at certain times.
 
  
 ## **Testing**
@@ -90,7 +101,7 @@ The manual tests I have completed are:
 - Check testimonial forms submit to the database.
 
 
-- I have also checked that all links go where expecteds.
+- I have also checked that all links go where expected.
 
 
 ### **Automated Testing**
@@ -123,6 +134,9 @@ This site has passed the W3C CSS validator with no errors
 ![CSS Validator](static/images/readme/css-validator.png)
 
 - **Lighthouse:**
+
+<br>
+
 ![Lighthouse](static/images/readme/lighthouse.png)
 
  
