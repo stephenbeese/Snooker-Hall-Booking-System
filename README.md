@@ -1,103 +1,195 @@
-# The 147 Club
+# **The 147 Club**
+![Responsive](static/images/readme/responsive.png)
+
  
- 
-## About
+## **About**
 <hr>
-This is a website for a Snooker and Pool hall built using django. The aim of this site is for users to be able to create an account and be able to reserve a snooker or pool table for a given time in the future. The user also had CRUD functionality to manage their bookings and delete/edit if they are unable to make the booked time. 
+This is a website for a Snooker and Pool hall built using Django. The aim of this site is for users to be able to create an account and be able to reserve a snooker or pool table for a given time in the future. The user also had CRUD functionality to manage their bookings and delete/edit if they are unable to make the booked time. This allows the user to change their mind and cancel or edit if they are no longer able to make their booking time. Having this functionality helps both the user and the owners of the club, as it would hopefully help restrict the amount of users unattending their slot. The user is also able to submit testimonials regarding their time at the snooker club in which the admin has the ability to approve them for the home page.
  
-## Features
+## **Features**
 <hr>
 
-### Existing Features
+### **Existing Features**
 
-#### Booking System
+#### **Booking System**
 - Create Booking 
 - View Booking
 - Delete Booking
 - Edit Booking
 
-Users are able to create, read, update and delete their bookings. 
+Users are able to create, read, update and delete their bookings. Users must be logged in to use this functionality. This helps the admin know that the account is correct and 
 
-#### Collapsable Navbar
+#### **Collapsable Navbar**
 - The navbar is set to become collapsable when viewed on medium size screens and below. This is beneficial as when the viewport width is smaller the navbar may become squashed. Having the navbar dropdown like this improves the UI and is intuitive the user.
 
-#### Auto Scrolling Images
+#### **Auto Scrolling Images**
 - The home page contains an auto scrolling carousel. The carousel contains images of the three cue sports available at the club. This immediately shows the user what the club has to offer. It also offers a 'Book Now!' button making it easy for the user to quickly get to the booking form page. 
 
-#### Overflow Boxes
+#### **Overflow Boxes**
 - The testimonial section includes a scrolling overflow box. This means that the size of the testimonial section will still remain a consistent size despite the amount of testimonials it contains. 
 
-#### User Input Validation
-- No double bookings (same time, same table)
-- No booking two tables at one time for a user. 
-- Start time < End time
-- Start time can only be between 11am and 10pm
-- End time can only be between 12am and 11pm
-- Date cannot be in the past
+#### **User Input Validation**
+- **No double bookings** - A user is unable to book a table if its already booking from another user for the time and date they desire.
+- **A user is unable to book two tables at once** - A user cannot book two different tables for the same date and time. This is to prevent large bookings and people accidently booking more than once.
+- **The submitted start time must be earlier than the end time** - This has to be the case as you can't have a booking with these inputs
+- **The selected start time can only be between 11:00:00 and 22:00:00** - This is to fit within the snooker halls opening times. The reason it is restricted like this is so you can't have a start time that starts when the club is closing.
+- **The selected end time can only be between 12:00:00 and 23:00:00** - This is to fit within the snooker halls opening times. The reason it is restricted like this is so you can't have an end time for when the club is opening.
+- **The booked date cannot be in the past** - This makes sure that the booking is for the future and not the past. 
 
-If any of the above conditions are met. The user will be shown an error message corresponding to the given error. They will be asked to change the part that was causing and issue. For example, if there was a table already booked by another user 
+If any of the above conditions are met. The user will be shown an error message corresponding to the given error. They will be asked to change the part that was causing the issue.
 
-#### Testimonials
+#### **Testimonials**
 - Users have the ability to submit testimonials. 
-- The admin has the ability to toggle an approved boolean so they can manage what testimonials are shown on the page. This could be to prevent bad language or accidentally submitted testimonials from being shown to the user. 
+- The admin has the ability to toggle an approved boolean so they can manage what testimonials are shown on the page. This could be to prevent bad language or accidentally submitted testimonials from being shown to the user.
+- The Admin has the capability to delete any testimonials as they wish from the admin pannel
 
-#### Google Maps API
+#### **Google Maps API**
 - The home page includes a Google Maps API to show the user the location of the club. This is useful to the user as they can see exactly where the club is and how to get there. It gives the user a more visual representation of the club's location. 
 
-#### Cloudinary
+#### **Cloudinary**
 - Cloudinary is used to store the images for the booking app. The Admin has a cloudinary field in the GameTable model where they can add an image to correspond with the the table they are uploading. This is easily updated or changed in the admin pannel
 
-#### Close tables for maintenance
+#### **Close tables for maintenance**
 - The admin has the ability to give the tables in the GameTable model a status of 'Working' or 'Maintenance'. Doing this makes the table unable to be booked while the table has a status of 'Maintenance'. 
 
-
-#### Past and Future bookings
+#### **Past and Future bookings**
 - The 'My Bookings' page includes tabs for past and Future bookings. 
 - The bookings are ordered by date. This makes it easy for a user to see the next booking they have and also keep track of their previous bookings.
 
  
-### Future Features
+### **Future Features**
+These are some future features that I would like to add in the future.
+
 - Implement email confirmation of a booking to the user
-- Remind user of booking 1hr before time slot 
+- Send reminders to the user of booking 1hr before time slot 
 - Payment/deposit
 - Suggest an alternative table if the user picks one that is unavailable
-- Email verification
-- login with social media / Google account 
+- Email verification to ensure the email entered exists
+- login with social media and Google accounts
 - Store user's first name and last name in built in django app
+- Store the user's date of birth to ensure they are old enough to use the club.
 
-
-## Data Model
+ 
+## **Testing**
 <hr>
 
+### **Manual Testing**
+The manual tests I have completed are:
+- Check booking form validation
+    - Ensure no double bookings
+    - Ensure user is unable to book two tables at once
+    - Ensure the start time is earlier than the end time 
+    - Ensure the start time can only be between 11am and 10pm
+    - Ensure the end time can only be between 12am and 11pm
+    - Ensure date cannot be in the past
+
+    Each of these validations raise an error to the user explaining the issue and tells them how to resolve it.
+
+<br>
+
+- Check testimonial forms submit to the database.
+
+
+- I have also checked that all links go where expecteds.
+
+
+### **Automated Testing**
+There are 29 tests in total and they all pass with no errors.
+
+I have created automated tests for:
+- forms.py
+- models.py
+- urls.py
+- views.py
+
+The test run various checks to ensure the code is running as expected. For example, ensuring validation errors work correctly and data submits to database correctly. 
+
+For tests, look at test_forms.py, test_models.py, test_urls.py and views.py. 
  
-## Testing
-<hr>
+### **Bugs**
 
-### Manual Testing 
+#### **Remaining Bugs**
+- No known bugs
 
-### Automated Testing
+### **Validator Testing**
+- **HTML Validator:**
+This site has passed the W3C HTML validator with no errors or warnings
+
+![HTML Validator](static/images/readme/html-validator.png)
+
+- **CSS Validator:**
+This site has passed the W3C CSS validator with no errors
+
+![CSS Validator](static/images/readme/css-validator.png)
+
+- **Lighthouse:**
+![Lighthouse](static/images/readme/lighthouse.png)
+
  
-### Bugs
-#### Solved Bugs
-
-#### Remaining Bugs
-- No bugs remaining
-### Validator Testing
-- PEP8
-
-- HTML Validator 
-
-- CSS Validator
  
- 
-## Deployment
+## **Deployment**
 <hr>
 
 Steps for deployment:
+1. **Create a new app:** Sign in to Heroku, click on the "New" button in the dashboard and select "Create new app". Give your app a unique name and choose the region closest to your intended audience.
+2. **Connect your app to GitHub:** In the Heroku dashboard, navigate to the "Deploy" tab. Look for the section called "Deployment method" and choose GitHub as the option. This will allow you to connect your Heroku app to your GitHub repository.
+3. **Configure the deployment settings:** Create a file called <code>Procfile</code> in the root directory. Inside the <code>Procfile</code>, add the following line: <code>web: gunicorn snookerhall.wsgi</code>
+4. **Specify dependencies:** Use the following command to freeze the installed packages and generate a requirements.txt file: <code>pip freeze > requirements.txt</code>
+5. In the Heroku dashboard, go to the "Settings" tab and click on "Reveal Config Vars". Add the following Config Vars:
+    - CLOUDINARY_URL: [Value specific to your Cloudinary configuration]
+    - DATABASE_URL: [Value specific to your database configuration]
+    - DISABLE_COLLECTSTATIC: 1
+    - HEROKU_POSTGRESQL_GREEN_URL: [Value specific to your Heroku Postgres configuration]
+    - PORT: 8000
+    - SECRET_KEY: [Value specific to your Django app's secret key]
+    Make sure to replace the values in brackets [...] with the actual values required for your app.
+6. With the configurations in place, navigate to the Heroku dashboard and go to the "Deploy" tab. You will find an option to deploy your app from a branch. Choose the main branch and click on "Deploy branch", you can also click on "Automatic Deploys" if you wish. 
+<br>
 
- 
- 
-You can find the live link here: 
- 
-## Credits
+You can find the live link here: [The 147 Club](https://snooker-hall-booking-system.herokuapp.com/)
+
+
+## **Wireframes**
+### **Home Page**
+![Wireframes Home page](static/images/readme/wireframes/wireframes-home.png)
+
+### **Tables Page:**
+![Wireframes Tables page](static/images/readme/wireframes/wireframes-tables.png)
+
+### **Booking Now Page:**
+![Wireframes Booking Form page](static/images/readme/wireframes/wireframes-booking-form.png)
+
+### **My Bookings Page:**
+![Wireframes Bookings page](static/images/readme/wireframes/wireframes-bookings.png)
+
+### **Signup Page:**
+![Wireframes Signup page](static/images/readme/wireframes/wireframes-signup.png)
+
+
+## **Entity Relationship Diagram**
+The ER Diagram shows the structure of the databases used in this project.
+
+![ER Diagram](static/images/readme/diagram.png)
+
+
+
+## **Credits**
 <hr>
+
+### **Images**
+**Home Page**
+- logo.png - https://pixabay.com/vectors/balls-cue-game-billiard-leisure-34909/
+- american-pool.jpg - https://www.freepik.com/free-photos-vectors/snooker-table
+- snooker-home.jpg - https://www.pexels.com/photo/close-up-photo-of-snooker-game-11354500/
+- pool-home.jpeg - https://www.istockphoto.com/photo/pool-billiards-table-gm177512476-21482817
+- Favicon Image - https://www.onlinelabels.com/clip-art/Red-snooker-ball-111122
+https://www.onlinelabels.com/API/Clipart/DownloadClipart?ClipArtID=111122&FileExtension=png
+
+**Tables Page**
+- Snooker tables - https://www.express.co.uk/sport/othersport/1303320/snooker-clubs-reopen-can-snooker-clubs-open-on-July-4
+- English Pool Tables - https://www.potblack.co.nz/blackball/
+- American pool tables - https://www.tripadvisor.com/LocationPhotoDirectLink-g186530-d8561134-i365398390-The_Ball_Room_Sports_Bar_Pool_Hall_Dunfermline-Dunfermline_Fife_Scotland.html
+
+
+
+
