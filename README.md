@@ -118,7 +118,7 @@ The test run various checks to ensure the code is running as expected. For examp
 For tests, look at test_forms.py, test_models.py, test_urls.py and views.py. 
  
 ### **Bugs**
-
+- After my 'Final commit', there were no static files showing up when <code>DEBUG = False</code> so I removed the WhiteNoise dependency and ran <code>python3 manage.py collectstatic</code> in the terminal. This solved the issue of no static files. The original purpose was for django WhiteNoise was to host its own static files for Heroku as it was not able to find the relevant static files.
 #### **Remaining Bugs**
 - No known bugs
 
