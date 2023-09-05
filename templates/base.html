@@ -2,13 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <title>The 147 Club</title>
     <!-- Font Awesome icons -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -32,7 +31,7 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{% url 'home' %}">
-                        <img class="d-none d-sm-inline" src="{% static 'images/logo.png' %}" id="logo" alt="Logo">
+                        <img class="d-none d-sm-inline" src="{{ MEDIA_URL }}logo.png" id="logo" alt="Logo">
                         <span id="logo-text">The 147 Club</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

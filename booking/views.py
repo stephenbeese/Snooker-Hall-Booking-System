@@ -201,22 +201,21 @@ class EditBooking(View):
         Saves the edited booking if it is valid.
         """
         booking = get_object_or_404(Reservation, booking_id=booking_id)
-        if request.method == 'POST':
-            form = ReservationForm(request.POST, instance=booking)
-            if form.is_valid():
-                reservation = form.save(commit=False)
-                game_table = form.cleaned_data.get('table_number')
-                reservation.table_number = game_table
+        form = ReservationForm(request.POST, instance=booking)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            game_table = form.cleaned_data.get('table_number')
+            reservation.table_number = game_table
 
-                # calculate total_price
-                start_time = datetime.combine(datetime.today(), reservation.start_time)
-                end_time = datetime.combine(datetime.today(), reservation.end_time)
-                time_difference = end_time - start_time
-                total_price = (time_difference.total_seconds() / 3600) * game_table.price
-                reservation.total_price = total_price
+            # calculate total_price
+            start_time = datetime.combine(datetime.today(), reservation.start_time)
+            end_time = datetime.combine(datetime.today(), reservation.end_time)
+            time_difference = end_time - start_time
+            total_price = (time_difference.total_seconds() / 3600) * game_table.price
+            reservation.total_price = total_price
 
-                form.save()
-                return redirect('bookings')
+            form.save()
+            return redirect('bookings')
         form = ReservationForm(instance=booking)
         context = {
             'form': form
