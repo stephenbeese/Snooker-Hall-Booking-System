@@ -60,7 +60,7 @@ class Reservation(models.Model):
             date=self.date,
             start_time__lt=self.end_time,
             end_time__gt=self.start_time
-        )
+        ).exclude(booking_id=self.booking_id)
         if conflicting_reservations.exists():
             raise ValidationError("This table is already booked for the selected time. Please try a different table.")
 

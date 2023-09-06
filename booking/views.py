@@ -216,7 +216,9 @@ class EditBooking(View):
 
             form.save()
             return redirect('bookings')
-        form = ReservationForm(instance=booking)
+        else:
+            print(form.errors)
+        # form = ReservationForm(instance=booking)
         context = {
             'form': form
         }
