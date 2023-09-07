@@ -2,6 +2,7 @@ from datetime import datetime, date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django import template
+from django.contrib.auth.decorators import login_required
 from .models import Testimonial, GameTable, Reservation
 from .forms import TestimonialForm, ReservationForm
 

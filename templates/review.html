@@ -4,26 +4,46 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-{% if reviewed %}
-    <div class="container red-box">
-        <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
-                <h1 class="pb-3">Thanks for leaving us a review!</h1>
-                <a class="text-white">Return to Home Page</a>
+{% if user.is_authenticated %}
+    {% if reviewed %}
+        <div class="container red-box">
+            <div class="row">
+                <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
+                    <h1 class="pb-3">Thanks for leaving us a review!</h1>
+                    <a class="text-white">Return to Home Page</a>
+                </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        <div class="container red-box">
+            <div class="row">
+                <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
+                    <h1>Leave us a Review!</h1>
+                    <p>Reviewing as: {{ user.username }}</p>
+                    <form method="post" action="{% url 'review' %}">
+                        {{ testimonial_form | crispy }}
+                        {% csrf_token %}
+                        <button class="btn btn-dark justify-content-cent m-4 fw-bold" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% else %}
-    <div class="container red-box">
-        <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2 text-center text-white pt-3">
-                <h1>Leave us a Review!</h1>
-                <p>Reviewing as: {{ user.username }}</p>
-                <form method="post" action="{% url 'review' %}">
-                    {{ testimonial_form | crispy }}
-                    {% csrf_token %}
-                    <button class="btn btn-dark justify-content-cent m-4 fw-bold" type="submit">Submit</button>
-                </form>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 text-white text-center red-box mt-5">
+                <h1 class="fw-bold pt-3">Leave us a review!</h1>
+                <div>
+                    <p class="fw-bold m-0">Oops!</p>
+                    <!-- <p class="mb-0">Looks like you're not logged in...</p> -->
+                    <p class="mb-0">You need to be logged in to write a review!</p>
+                    <a href="{% url 'account_login' %}" class="text-white fw-bold btn btn-dark mb-3 mt-1">Sign In</a>
+                </div>
+                <div>
+                    <p class="mb-0">Don't have an account?</p>
+                    <a href="{% url 'account_signup' %}" class="text-white fw-bold btn btn-dark mb-3 mt-1">Sign Up</a>
+                </div>
             </div>
         </div>
     </div>
