@@ -52,7 +52,7 @@ class Reservation(models.Model):
     def clean(self):
         # Check if the end time is earlier than or equal to the start time
         if self.end_time <= self.start_time:
-            raise ValidationError("End time should be later than the start time.")
+            raise ValidationError("The end time must be later than the start time.")
 
         # Check if there are any existing reservations with overlapping times on the same table
         conflicting_reservations = Reservation.objects.filter(
@@ -62,7 +62,7 @@ class Reservation(models.Model):
             end_time__gt=self.start_time
         ).exclude(booking_id=self.booking_id)
         if conflicting_reservations.exists():
-            raise ValidationError("This table is already booked for the selected time. Please try a different table.")
+            raise ValidationError("This table is already booked for the selected time. Please try a different table or time.")
 
     def __str__(self):
         return f"Booked by {self.name} for {self.date} at {self.start_time}"
