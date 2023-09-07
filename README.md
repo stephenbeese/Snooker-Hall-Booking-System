@@ -1,5 +1,5 @@
 # **The 147 Club**
-![Responsive](static/images/readme/responsive.png)
+![Responsive](readme/responsive.png)
 
  
 ## **About**
@@ -126,18 +126,18 @@ For tests, look at test_forms.py, test_models.py, test_urls.py and views.py.
 - **HTML Validator:**
 This site has passed the W3C HTML validator with no errors or warnings
 
-![HTML Validator](static/images/readme/html-validator.png)
+![HTML Validator](readme/html-validator.png)
 
 - **CSS Validator:**
 This site has passed the W3C CSS validator with no errors
 
-![CSS Validator](static/images/readme/css-validator.png)
+![CSS Validator](readme/css-validator.png)
 
 - **Lighthouse:**
 
 <br>
 
-![Lighthouse](static/images/readme/lighthouse.png)
+![Lighthouse](readme/lighthouse.png)
 
  
  
@@ -165,25 +165,25 @@ You can find the live link here: [The 147 Club](https://snooker-hall-booking-sys
 
 ## **Wireframes**
 ### **Home Page**
-![Wireframes Home page](static/images/readme/wireframes/wireframes-home.png)
+![Wireframes Home page](readme/wireframes/wireframes-home.png)
 
 ### **Tables Page:**
-![Wireframes Tables page](static/images/readme/wireframes/wireframes-tables.png)
+![Wireframes Tables page](readme/wireframes/wireframes-tables.png)
 
 ### **Booking Now Page:**
-![Wireframes Booking Form page](static/images/readme/wireframes/wireframes-booking-form.png)
+![Wireframes Booking Form page](readme/wireframes/wireframes-booking-form.png)
 
 ### **My Bookings Page:**
-![Wireframes Bookings page](static/images/readme/wireframes/wireframes-bookings.png)
+![Wireframes Bookings page](readme/wireframes/wireframes-bookings.png)
 
 ### **Signup Page:**
-![Wireframes Signup page](static/images/readme/wireframes/wireframes-signup.png)
+![Wireframes Signup page](readme/wireframes/wireframes-signup.png)
 
 
 ## **Entity Relationship Diagram**
 The ER Diagram shows the structure of the databases used in this project.
 
-![ER Diagram](static/images/readme/diagram.png)
+![ER Diagram](readme/diagram.png)
 
 
 
