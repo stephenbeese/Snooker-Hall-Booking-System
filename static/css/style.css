@@ -153,6 +153,7 @@ body {
 .table-image {
   margin: 20px 0px;
   max-width: 30vh;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 
 .table-image ~ p {
@@ -169,7 +170,7 @@ body {
 }
 
 .table-div:hover {
-  background-color: rgb(225, 2, 2, 85%);
+  background-color: rgba(232, 2, 2, 0.87)
 }
 
 .our-tables {
