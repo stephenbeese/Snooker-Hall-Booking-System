@@ -43,7 +43,7 @@ body {
   text-align: center;
 }
 
-.caption h2 {
+.caption h1 {
   margin: 15px;
   font-size: 3.7em;
   text-transform: uppercase;
@@ -71,7 +71,7 @@ body {
   border-radius: 15px;
 }
 
-.home-card h4 {
+.home-card h2 {
   font-weight: 700;
   padding-top: 10px;
 }
