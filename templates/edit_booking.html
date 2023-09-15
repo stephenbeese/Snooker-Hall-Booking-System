@@ -8,12 +8,17 @@
     <div class="row justify-content-center">
         <div class="col-12 text-white text-center red-box">
             <h1 class="mt-2 fw-bold">Edit Booking</h1>
+            {% if user == booking.user_id %}
             <p>Opening times: 11am - 11pm</p>
             <p>Booking as: {{ user.username }}</p>
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-dark fw-bold m-3">Submit</button>
+                {% else %}
+                <p>You do not have permission to edit this booking.</p>
+                {% endif %}
+                <a href="{% url 'bookings' %}" class="btn btn-dark m-3 fw-bold">Cancel</a>
             </form>
         </div>
     </div>

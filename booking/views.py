@@ -191,7 +191,8 @@ class EditBooking(View):
         booking = get_object_or_404(Reservation, booking_id=booking_id)
         form = ReservationForm(instance=booking)
         context = {
-            'form': form
+            'form': form,
+            'booking': booking
             }
         return render(request, 'edit_booking.html', context)
 
