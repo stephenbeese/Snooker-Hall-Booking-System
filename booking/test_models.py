@@ -179,7 +179,10 @@ class TestimonialTestCase(TestCase):
         This test case verifies that the string representation of
         a Testimonial object returns the expected value.
         """
-        expected_string = f"Comment: {self.testimonial.comment} by {self.testimonial.name}"
+        expected_string = (
+            f"Comment: {self.testimonial.comment} "
+            f"by {self.testimonial.name}"
+        )
         self.assertEqual(str(self.testimonial), expected_string)
 
     def test_testimonial_approval_status(self):

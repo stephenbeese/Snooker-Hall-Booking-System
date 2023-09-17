@@ -25,8 +25,9 @@ class TestimonialFormTest(TestCase):
         """
         Test the fields of the TestimonialForm.
 
-        This method asserts that the Meta model of the TestimonialForm is set to the Testimonial model.
-        It also asserts that the Meta fields of the form include only the 'comment' field.
+        This method asserts that the Meta model of the TestimonialForm is set
+        to the Testimonial model. It also asserts that the Meta fields of the
+        form include only the 'comment' field.
         """
         form = TestimonialForm()
         self.assertEqual(
@@ -44,7 +45,8 @@ class TestimonialFormTest(TestCase):
         """
         Test a valid TestimonialForm.
 
-        This method creates a TestimonialForm with valid data and asserts that it is considered valid.
+        This method creates a TestimonialForm with valid data and asserts that
+        it is considered valid.
         """
         form_data = {
             'comment': 'This is a test comment.',
@@ -58,7 +60,8 @@ class TestimonialFormTest(TestCase):
         """
         Test an invalid TestimonialForm.
 
-        This method creates a TestimonialForm with an empty comment and asserts that it is considered invalid.
+        This method creates a TestimonialForm with an empty comment and
+        asserts that it is considered invalid.
         """
         form_data = {
             'comment': '',
@@ -72,8 +75,9 @@ class TestimonialFormTest(TestCase):
         """
         Test saving a TestimonialForm.
 
-        This method creates a TestimonialForm with valid data, associates it with the user,
-        saves the form, and then asserts the correctness of the saved Testimonial object.
+        This method creates a TestimonialForm with valid data, associates it
+        with the user, saves the form, and then asserts the correctness of the
+        saved Testimonial object.
         """
         form_data = {
             'comment': 'This is a test comment.',
@@ -119,7 +123,8 @@ class ReservationFormTest(TestCase):
         """
         Test a valid ReservationForm.
 
-        This method creates a ReservationForm with valid data and asserts that it is considered valid.
+        This method creates a ReservationForm with valid data and asserts that
+        it is considered valid.
         """
         form_data = {
             'table_number': self.table.pk,
@@ -137,7 +142,8 @@ class ReservationFormTest(TestCase):
         """
         Test an invalid ReservationForm.
 
-        This method creates a ReservationForm with invalid data and asserts that it is considered invalid.
+        This method creates a ReservationForm with invalid data and asserts
+        that it is considered invalid.
         """
         form_data = {
             'table_number': None,  # Invalid table number

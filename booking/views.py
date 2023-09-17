@@ -138,7 +138,8 @@ class ReservationView(View):
             if conflicting_user_reservations.exists():
                 form.add_error(
                     None,
-                    "You have already booked another table for the selected time. Please select a different date/time")
+                    "You have already booked another table for the selected \
+                     time. Please select a different date/time")
                 return render(request, 'reservation.html', context)
 
             form.save()
@@ -245,7 +246,8 @@ class EditBooking(View):
             if conflicting_user_reservations.exists():
                 form.add_error(
                     None,
-                    "You have already booked another table for the selected time. Please select a different date/time")
+                    "You have already booked another table for the selected \
+                     time. Please select a different date/time")
                 return render(request, 'reservation.html', context)
 
             form.save()
