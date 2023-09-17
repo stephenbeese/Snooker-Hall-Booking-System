@@ -84,38 +84,9 @@ These are some future features that I would like to add in the future.
 ## **Testing**
 <hr>
 
-### **Manual Testing**
-The manual tests I have completed are:
-- Check booking form validation
-    - Ensure no double bookings
-    - Ensure user is unable to book two tables at once
-    - Ensure the start time is earlier than the end time 
-    - Ensure the start time can only be between 11am and 10pm
-    - Ensure the end time can only be between 12am and 11pm
-    - Ensure date cannot be in the past
 
-    Each of these validations raise an error to the user explaining the issue and tells them how to resolve it.
+You can view my testing procedures in [TESTING.md](TESTING.md)
 
-<br>
-
-- Check testimonial forms submit to the database.
-
-
-- I have also checked that all links go where expected.
-
-
-### **Automated Testing**
-There are 29 tests in total and they all pass with no errors.
-
-I have created automated tests for:
-- forms.py
-- models.py
-- urls.py
-- views.py
-
-The test run various checks to ensure the code is running as expected. For example, ensuring validation errors work correctly and data submits to database correctly. 
-
-For tests, look at test_forms.py, test_models.py, test_urls.py and views.py. 
  
 ### **Bugs**
 - After my 'Final commit', there were no static files showing up when <code>DEBUG = False</code> so I removed the WhiteNoise dependency and ran <code>python3 manage.py collectstatic</code> in the terminal. This solved the issue of no static files. The original purpose was for django WhiteNoise was to host its own static files for Heroku as it was not able to find the relevant static files.
