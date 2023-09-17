@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
 
 STATUS = ((0, "Working"), (1, "Maintenance"))
 GAME = ((0, "Snooker"), (1, "English Pool"), (2, "American Pool"))
@@ -50,6 +51,13 @@ class Reservation(models.Model):
         ordering = ['-date']
 
     def clean(self):
+        # If booking is for today, check if the start time is in the past
+        current_date = timezone.now().date()
+        if self.date == current_date:
+            current_time = timezone.now().time()
+            if self.start_time <= current_time:
+                raise ValidationError("Booking time cannot be in the past.")
+
         # Check if the end time is earlier than or equal to the start time
         if self.end_time <= self.start_time:
             raise ValidationError("The end time must be later than the start time.")
