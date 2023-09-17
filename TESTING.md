@@ -10,11 +10,29 @@
 - [Lighthouse Reports](#lighthouse)
 - [Manual Testing](#manual-testing)
 - [Automated Testing](#automated-testing)
+
 ## Validator Testing
 ### HTML
 ### CSS
+To validate my CSS I used the [W3C CSS validator](https://jigsaw.w3.org/css-validator/#validate_by_input) by direct input. I copied and pasted my [style.css](static/css/style.css) file into the validator and it returned no errors.
+
+![CSS Validation](readme/css-validation.png)
+
+
 ### Javascript
+To test my javascript code I ran my [scripts.js](static/js/scripts.js) file through [JSHint](https://jshint.com/). The following errors are out of my control:
+
+![JSHint Results](readme/jshint.png)
+
+These errors are in regards to the javascript from the embedded google maps on the home page. It is not recommended to edit this code therefore I have left it with these errors.
+
+
 ### Python
+To validate my Python code I used autopep8 to format my .py files.
+Firstly I installed the autopep8 formatter by using the following command <code>pip install autopep8</code>. After this I used to following command <code>autopep8 --in-place --aggressive --aggressive</code> followed by the filename to aggressively format each python file in the booking app
+
+To further validate my Python files against the pep8 guidelines I used pycodestyle to run a command that returns the first error in the file. To install pycodestyle I entered the following command into the terminal <code>pip install pycodestyle</code>The command to reveal the errors was: <code>pycodestyle --first </code> followed by the filename. I ran this command for each python file in the booking app and after the changed had been made there were no errors.
+
 
 
 ## WAVE Evaluation Tool
