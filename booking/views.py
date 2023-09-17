@@ -2,7 +2,6 @@ from datetime import datetime, date
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django import template
-from django.contrib.auth.decorators import login_required
 from .models import Testimonial, GameTable, Reservation
 from .forms import TestimonialForm, ReservationForm
 
@@ -16,12 +15,14 @@ class Home(generic.ListView):
     Displays a list of approved testimonials on the home page.
     """
     model = Testimonial
-    queryset = Testimonial.objects.filter(approved=True).order_by('-created_on')
+    queryset = Testimonial.objects.filter(
+        approved=True).order_by('-created_on')
     template_name = 'index.html'
 
 
 class TestimonialView(View):
     """Allows users to submit testimonials through a form"""
+
     def get(self, request):
         """
         Handle GET request for submitting a testimonial.
@@ -81,6 +82,7 @@ class ReservationView(View):
 
     Allows users to make reservations through a form.
     """
+
     def get(self, request):
         """
         Handle GET request for making a reservation.
@@ -116,13 +118,16 @@ class ReservationView(View):
             reservation.table_number = game_table
 
             # calculate total_price
-            start_time = datetime.combine(datetime.today(), reservation.start_time)
+            start_time = datetime.combine(
+                datetime.today(), reservation.start_time)
             end_time = datetime.combine(datetime.today(), reservation.end_time)
             time_difference = end_time - start_time
-            total_price = (time_difference.total_seconds() / 3600) * game_table.price
+            total_price = (time_difference.total_seconds() /
+                           3600) * game_table.price
             reservation.total_price = total_price
 
-            # Custom validation to prevent user booking two tables at conflicting times
+            # Custom validation to prevent user booking two tables at
+            # conflicting times
             conflicting_user_reservations = Reservation.objects.filter(
                 user_id=request.user,
                 date=reservation.date,
@@ -131,7 +136,9 @@ class ReservationView(View):
             ).exclude(pk=reservation.pk)
 
             if conflicting_user_reservations.exists():
-                form.add_error(None, "You have already booked another table for the selected time. Please select a different date/time")
+                form.add_error(
+                    None,
+                    "You have already booked another table for the selected time. Please select a different date/time")
                 return render(request, 'reservation.html', context)
 
             form.save()
@@ -158,8 +165,10 @@ class UserBookings(generic.ListView):
         """
         today = date.today()
         if self.request.user.is_authenticated:
-            user_bookings = Reservation.objects.filter(user_id=self.request.user)
-            past_bookings = user_bookings.filter(date__lt=today).order_by('-date')
+            user_bookings = Reservation.objects.filter(
+                user_id=self.request.user)
+            past_bookings = user_bookings.filter(
+                date__lt=today).order_by('-date')
             return past_bookings
 
     def get_context_data(self, **kwargs):
@@ -171,8 +180,10 @@ class UserBookings(generic.ListView):
         context = super().get_context_data(**kwargs)
         today = date.today()
         if self.request.user.is_authenticated:
-            user_bookings = Reservation.objects.filter(user_id=self.request.user)
-            context['future_bookings'] = user_bookings.filter(date__gte=today).order_by('date')
+            user_bookings = Reservation.objects.filter(
+                user_id=self.request.user)
+            context['future_bookings'] = user_bookings.filter(
+                date__gte=today).order_by('date')
         return context
 
 
@@ -182,6 +193,7 @@ class EditBooking(View):
 
     Allows users to edit an existing booking.
     """
+
     def get(self, request, booking_id):
         """
         Handle GET request for editing a booking.
@@ -193,7 +205,7 @@ class EditBooking(View):
         context = {
             'form': form,
             'booking': booking
-            }
+        }
         return render(request, 'edit_booking.html', context)
 
     def post(self, request, booking_id):
@@ -213,13 +225,16 @@ class EditBooking(View):
             reservation.table_number = game_table
 
             # calculate total_price
-            start_time = datetime.combine(datetime.today(), reservation.start_time)
+            start_time = datetime.combine(
+                datetime.today(), reservation.start_time)
             end_time = datetime.combine(datetime.today(), reservation.end_time)
             time_difference = end_time - start_time
-            total_price = (time_difference.total_seconds() / 3600) * game_table.price
+            total_price = (time_difference.total_seconds() /
+                           3600) * game_table.price
             reservation.total_price = total_price
 
-             # Custom validation to prevent user booking two tables at conflicting times
+            # Custom validation to prevent user booking two tables at
+            # conflicting times
             conflicting_user_reservations = Reservation.objects.filter(
                 user_id=request.user,
                 date=reservation.date,
@@ -228,7 +243,9 @@ class EditBooking(View):
             ).exclude(pk=reservation.pk)
 
             if conflicting_user_reservations.exists():
-                form.add_error(None, "You have already booked another table for the selected time. Please select a different date/time")
+                form.add_error(
+                    None,
+                    "You have already booked another table for the selected time. Please select a different date/time")
                 return render(request, 'reservation.html', context)
 
             form.save()
@@ -244,6 +261,7 @@ class ConfirmDelete(View):
 
     Displays a confirmation page before deleting a booking.
     """
+
     def get(self, request, booking_id):
         """
         Handle GET request for confirming booking deletion.
@@ -261,6 +279,7 @@ class DeleteBooking(View):
 
     Deletes a booking and redirects to the bookings page.
     """
+
     def get(self, request, booking_id):
         """
         Handle GET request for deleting a booking.

@@ -23,12 +23,25 @@ class ReservationForm(forms.ModelForm):
 
     class Meta:
         """
-        Meta class sets fields for the From and sets widgets for the date, start time and end time
+        Meta class sets fields for the From and sets widgets for the date,
+        start time and end time
         """
         model = Reservation
         fields = ('table_number', 'name', 'date', 'start_time', 'end_time',)
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date', 'min': timezone.now().date()}),
-            'start_time': forms.TimeInput(attrs={'type': 'time', 'value': '11:00', 'min': '11:00', 'max': '22:00'}),
-            'end_time': forms.TimeInput(attrs={'type': 'time', 'value': '23:00', 'min': '12:00', 'max': '23:00'})
-        }
+            'date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                    'min': timezone.now().date()}),
+            'start_time': forms.TimeInput(
+                attrs={
+                    'type': 'time',
+                    'value': '11:00',
+                    'min': '11:00',
+                    'max': '22:00'}),
+            'end_time': forms.TimeInput(
+                attrs={
+                    'type': 'time',
+                            'value': '23:00',
+                            'min': '12:00',
+                            'max': '23:00'})}

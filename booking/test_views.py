@@ -16,6 +16,7 @@ class HomeViewTestCase(TestCase):
     template, retrieves the appropriate testimonials, and orders them by
     their created_on date.
     """
+
     def setUp(self):
         # Create a User instance for the testimonial
         user1 = User.objects.create(username="john_doe")
@@ -65,8 +66,10 @@ class HomeViewTestCase(TestCase):
         response = self.client.get(reverse("home"))
         testimonials = response.context["object_list"]
         self.assertQuerysetEqual(
-            testimonials, [repr(self.testimonial1), repr(self.testimonial2)], ordered=False
-        )
+            testimonials, [
+                repr(
+                    self.testimonial1), repr(
+                    self.testimonial2)], ordered=False)
 
     def test_home_view_ordering(self):
         """

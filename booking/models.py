@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Working"), (1, "Maintenance"))
 GAME = ((0, "Snooker"), (1, "English Pool"), (2, "American Pool"))
@@ -38,8 +38,14 @@ class Reservation(models.Model):
     This stores the all the booking information
     """
     booking_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_bookings")
-    table_number = models.ForeignKey(GameTable, on_delete=models.CASCADE, related_name="table_bookings")
+    user_id = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_bookings")
+    table_number = models.ForeignKey(
+        GameTable,
+        on_delete=models.CASCADE,
+        related_name="table_bookings")
     name = models.CharField(max_length=40)
     date = models.DateField()
     start_time = models.TimeField()
@@ -60,9 +66,11 @@ class Reservation(models.Model):
 
         # Check if the end time is earlier than or equal to the start time
         if self.end_time <= self.start_time:
-            raise ValidationError("The end time must be later than the start time.")
+            raise ValidationError(
+                "The end time must be later than the start time.")
 
-        # Check if there are any existing reservations with overlapping times on the same table
+        # Check if there are any existing reservations with overlapping times
+        # on the same table
         conflicting_reservations = Reservation.objects.filter(
             table_number=self.table_number,
             date=self.date,
@@ -70,7 +78,9 @@ class Reservation(models.Model):
             end_time__gt=self.start_time
         ).exclude(booking_id=self.booking_id)
         if conflicting_reservations.exists():
-            raise ValidationError("This table is already booked for the selected time. Please try a different table or time.")
+            raise ValidationError(
+                "This table is already booked for the selected time. \
+                 Please try a different table or time.")
 
     def __str__(self):
         return f"Booked by {self.name} for {self.date} at {self.start_time}"
@@ -81,7 +91,10 @@ class Testimonial(models.Model):
     Stores comments submitted by users.
     Each testimonial has to be approved by an admin before its displayed
     """
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="testimonials")
+    user_id = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="testimonials")
     name = models.CharField(max_length=40)
     comment = models.TextField()
     created_on = models.DateTimeField(auto_now=True)

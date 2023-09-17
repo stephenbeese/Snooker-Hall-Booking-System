@@ -12,6 +12,7 @@ class GameTableTestCase(TestCase):
     This test case verifies the behavior and functionality of the GameTable
     model, including its field values, string representation, and ordering
     """
+
     def setUp(self):
         self.table1 = GameTable.objects.create(
             table_number=1,
@@ -75,6 +76,7 @@ class ReservationTestCase(TestCase):
     objects and the validation logic implemented in the clean method of the
     Reservation model.
     """
+
     def setUp(self):
         self.table1 = GameTable.objects.create(
             table_number=1,
@@ -162,6 +164,7 @@ class TestimonialTestCase(TestCase):
     approval status, and ordering of testimonials based on their created_on
     date.
     """
+
     def setUp(self):
         self.user = User.objects.create(username="john_doe")
         self.testimonial = Testimonial.objects.create(
@@ -207,4 +210,3 @@ class TestimonialTestCase(TestCase):
         testimonials = Testimonial.objects.all()
         expected_order = [testimonial3, testimonial2, self.testimonial]
         self.assertEqual(list(testimonials), expected_order)
-

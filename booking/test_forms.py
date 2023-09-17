@@ -50,7 +50,9 @@ class TestimonialFormTest(TestCase):
             'comment': 'This is a test comment.',
         }
         form = TestimonialForm(data=form_data)
-        self.assertTrue(form.is_valid(), "The form should be valid with valid data.")
+        self.assertTrue(
+            form.is_valid(),
+            "The form should be valid with valid data.")
 
     def test_invalid_form(self):
         """
@@ -62,7 +64,9 @@ class TestimonialFormTest(TestCase):
             'comment': '',
         }
         form = TestimonialForm(data=form_data)
-        self.assertFalse(form.is_valid(), "The form should be invalid with empty comment.")
+        self.assertFalse(
+            form.is_valid(),
+            "The form should be invalid with empty comment.")
 
     def test_save_form(self):
         """
@@ -77,9 +81,18 @@ class TestimonialFormTest(TestCase):
         form = TestimonialForm(data=form_data)
         form.instance.user_id = self.user
         testimonial = form.save()
-        self.assertIsInstance(testimonial, Testimonial, "The form should save a Testimonial object.")
-        self.assertEqual(testimonial.comment, form_data['comment'], "The saved Testimonial's comment should match the form data.")
-        self.assertEqual(testimonial.user_id, self.user, "The saved Testimonial should be associated with the user.")
+        self.assertIsInstance(
+            testimonial,
+            Testimonial,
+            "The form should save a Testimonial object.")
+        self.assertEqual(
+            testimonial.comment,
+            form_data['comment'],
+            "The saved Testimonial's comment should match the form data.")
+        self.assertEqual(
+            testimonial.user_id,
+            self.user,
+            "The saved Testimonial should be associated with the user.")
 
 
 class ReservationFormTest(TestCase):
@@ -116,7 +129,9 @@ class ReservationFormTest(TestCase):
             'end_time': '12:00',
         }
         form = ReservationForm(data=form_data)
-        self.assertTrue(form.is_valid(), "The form should be valid with valid data.")
+        self.assertTrue(
+            form.is_valid(),
+            "The form should be valid with valid data.")
 
     def test_invalid_form(self):
         """
@@ -132,7 +147,9 @@ class ReservationFormTest(TestCase):
             'end_time': '09:00',  # Invalid end time
         }
         form = ReservationForm(data=form_data)
-        self.assertFalse(form.is_valid(), "The form should be invalid with invalid data.")
+        self.assertFalse(
+            form.is_valid(),
+            "The form should be invalid with invalid data.")
 
     def test_table_number_filter(self):
         """
@@ -154,5 +171,11 @@ class ReservationFormTest(TestCase):
 
         form = ReservationForm()
         queryset = form.fields['table_number'].queryset
-        self.assertIn(self.table, queryset, "The queryset should include working tables.")
-        self.assertNotIn(non_working_table, queryset, "The queryset should exclude non-working tables.")
+        self.assertIn(
+            self.table,
+            queryset,
+            "The queryset should include working tables.")
+        self.assertNotIn(
+            non_working_table,
+            queryset,
+            "The queryset should exclude non-working tables.")
