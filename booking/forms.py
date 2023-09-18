@@ -36,12 +36,10 @@ class ReservationForm(forms.ModelForm):
             'start_time': forms.TimeInput(
                 attrs={
                     'type': 'time',
-                    'value': '11:00',
                     'min': '11:00',
                     'max': '22:00'}),
             'end_time': forms.TimeInput(
                 attrs={
                     'type': 'time',
-                            'value': '23:00',
                             'min': '12:00',
                             'max': '23:00'})}
