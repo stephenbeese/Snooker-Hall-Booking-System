@@ -98,7 +98,7 @@ After home image compression:
 
 ![Home Lighthouse Mobile](readme/testing/lh-home-mobile-2.png)
 
-I believe that the majority of performance issues are due to the embedded Google Maps API.
+I believe that the some of the performance issues are due to the embedded Google Maps API.
 
 The home images could also benefit from being resized.
 
