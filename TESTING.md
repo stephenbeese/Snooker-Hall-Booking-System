@@ -47,28 +47,28 @@ To test my javascript code I ran my [scripts.js](static/js/scripts.js) file thro
 
 ![JSHint Results](readme/jshint.png)
 
-These errors are in regards to the javascript from the embedded google maps on the home page. It is not recommended to edit this code therefore I have left it with these errors.
+These errors are in regards to the javascript from the embedded Google Maps on the home page. It is not recommended to edit this code therefore I have left it with these errors.
 
 
 ### Python
 To validate my Python code I used autopep8 to format my .py files.
-Firstly I installed the autopep8 formatter by using the following command <code>pip install autopep8</code>. After this I used to following command <code>autopep8 --in-place --aggressive --aggressive</code> followed by the filename to aggressively format each python file in the booking app
+Firstly I installed the autopep8 formatter by using the following command <code>pip install autopep8</code>. After this I used to following command <code>autopep8 --in-place --aggressive --aggressive</code> followed by the filename to aggressively format each Python file in the booking app
 
-To further validate my Python files against the pep8 guidelines I used pycodestyle to run a command that returns the first error in the file. To install pycodestyle I entered the following command into the terminal <code>pip install pycodestyle</code>The command to reveal the errors was: <code>pycodestyle --first </code> followed by the filename. I ran this command for each python file in the booking app and after the changed had been made there were no errors.
+To further validate my Python files against the pep8 guidelines I used pycodestyle to run a command that returns the first error in the file. To install pycodestyle I entered the following command into the terminal <code>pip install pycodestyle</code>The command to reveal the errors was: <code>pycodestyle --first </code> followed by the filename. I ran this command for each python file in the booking app and after the changes had been made there were no errors.
 
 
 ## WAVE Evaluation Tool
-To test this sites accessability I used the [WAVE Evaluation Tool](https://wave.webaim.org/) to find any errors on the site. 
+To test this site's accessibility I used the [WAVE Evaluation Tool](https://wave.webaim.org/) to find any errors on the site. 
 
 After testing each page there were no errors returned, however there were a couple of alerts to note.
 
-On the home page the following alerts were found:
+On the home page, the following alerts were found:
 
 ![WAVE Evaluation Home page](readme/testing/wave-home.png)
 
-The first alert is in regards to the home page link. The WAVE tool says that it is redundant as there is another link the home page just before it. I have decided to ignore this as it doesn't cause any issues and adheres to my design choices.
+The first alert is in regard to the home page link. The WAVE tool says that it is redundant as there is another link to the home page just before it. I have decided to ignore this as it doesn't cause any issues and adheres to my design choices.
 
-The other alerts are in regards to the embedded google map at the bottom of the home page. I am unable to do anything about these alerts so I have left them.
+The other alerts are in regard to the embedded Google map at the bottom of the home page. I am unable to do anything about these alerts so I have left them.
 
 After testing the other pages the only alert found on each page was in regards to the redundant home page link. Which I have chosen to keep for design reasons.
 
@@ -144,7 +144,7 @@ After testing the other pages the only alert found on each page was in regards t
 ## Manual Testing
 To test this site I created pass criteria for the following user stories.
 
-I then put these pass criteria into a table and ticked it off as passed once I had checked this functionality works as expected.
+I then put these pass criteria into a table and ticked it off as passed once I had checked each functionality worked as expected.
 
 
 ### USER STORY - Delete Bookings
@@ -162,7 +162,7 @@ I then put these pass criteria into a table and ticked it off as passed once I h
 |---|---|
 | ✔ | A user can edit the information on their booking |
 | ✔ | A user cannot edit a booking to overlap with another booking |
-| ✔ | A user cannot edit a booking to overlaps with one of their existing bookings |
+| ✔ | A user cannot edit a booking to overlap with one of their existing bookings |
 | ✔ | A user can only edit a booking if they are logged in |
 | ✔ | A user can only edit a booking if the booking was created with the account logged in  |
 
@@ -235,7 +235,7 @@ I then put these pass criteria into a table and ticked it off as passed once I h
 | ✔ | The user cannot select a date in the past |
 | ✔ | The user cannot select a start time that is after the end time |
 | ✔ | The user cannot select a time that is out of the opening hours |
-| ✔ | The user cannot select a time that this before the current time on todays date |
+| ✔ | The user cannot select a time that this before the current time on today's date |
 
 ### USER STORY - Select Table
 
@@ -276,6 +276,6 @@ You can view the test files here:
 - [test_views.py](booking/test_views.py)
 
 
-To run these tests you need to enter <code>python3 manage.py test</code> into the terminal and press enter. As you can see below all tests pass with no issues.
+To run these tests you need to enter <code>python3 manage.py test</code> into the terminal and press enter. As you can see below all tests passed with no issues.
 
 ![Tests](readme/tests.png)
