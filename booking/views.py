@@ -91,8 +91,8 @@ class ReservationView(View):
         """
         form = ReservationForm(
             initial={
-                'start_time': '11:00:00',
-                'end_time': '23:00:00'})
+                'start_time': '11:00',
+                'end_time': '23:00'})
         game_tables = GameTable.objects.all()
         context = {
             'form': form,

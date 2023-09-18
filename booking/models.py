@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.utils import timezone
+from datetime import time
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Working"), (1, "Maintenance"))
@@ -68,6 +69,15 @@ class Reservation(models.Model):
         if self.end_time <= self.start_time:
             raise ValidationError(
                 "The end time must be later than the start time.")
+
+        # Check if start_time and end_time are between 11:00 and 23:00
+        min_time = time(11, 0)  # 11:00 AM
+        max_time = time(23, 0)  # 11:00 PM
+        if not (
+                min_time <= self.start_time <= max_time) or not (
+                min_time <= self.end_time <= max_time):
+            raise ValidationError(
+                "Booking time must be between 11:00 and 23:00.")
 
         # Check if there are any existing reservations with overlapping times
         # on the same table
