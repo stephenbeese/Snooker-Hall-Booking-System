@@ -80,20 +80,36 @@ After testing the other pages the only alert found on each page was in regards t
 
 **Desktop**
 
+Prior to home image compression:
+
 ![Home Lighthouse Desktop](readme/testing/lh-home-desktop.png)
+
+After home image compression:
+
+![Home Lighthouse Desktop](readme/testing/lh-home-desktop-2.png)
 
 **Mobile**
 
+Prior to home image compression:
+
 ![Home Lighthouse Mobile](readme/testing/lh-home-mobile.png)
+
+After home image compression:
+
+![Home Lighthouse Mobile](readme/testing/lh-home-mobile-2.png)
+
+I believe that the majority of performance issues are due to the embedded Google Maps API.
+
+The home images could also benefit from being resized.
 
 ### **Our Tables**
 **Desktop**
 
-![Our Tables Lighthouse Desktop](readme/testing/lh-tables-desktop.png)
+![Our Tables Lighthouse Desktop](readme/testing/lh-table-desktop.png)
 
 **Mobile**
 
-![Our Tables Lighthouse Mobile](readme/testing/lh-tables-mobile.png)
+![Our Tables Lighthouse Mobile](readme/testing/lh-table-mobile.png)
 
 ### **Book Now**
 **Desktop**
