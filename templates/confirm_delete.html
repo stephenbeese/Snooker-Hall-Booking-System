@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 text-center text-white red-box">
+            <div class="col-12 text-center text-white red-box mt-3">
                 <h1 class="mt-2 fw-bold">Delete Booking?</h1>
                 {% if user == booking.user_id %}
                 <!-- Display booking details -->
@@ -20,7 +20,7 @@
                     <button type="submit" class="btn btn-dark m-3 fw-bold">Confirm</button>
                 </form>
                 {% else %}
-                <p class="mb-0 fw-bold">You do not have permission to delete this booking.</p>
+                <p class="mb-1 fw-bold">You do not have permission to delete this booking.</p>
                 {% endif %}
                 <a href="{% url 'bookings' %}" class="btn btn-dark mb-3 fw-bold">Cancel</a>
             </div>
