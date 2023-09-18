@@ -13,6 +13,29 @@
 
 ## Validator Testing
 ### HTML
+To validate my HTML code I used [W3C HTML validator](https://validator.w3.org/#validate_by_input) by direct input. I copied and pasted the source code from developer tools for each page and there were no errors returned.
+
+#### Home
+![Home HTML Validation](readme/testing/home-validation.png)
+
+#### Our Tables
+![Our Tables HTML Validation](readme/testing/tables-validation.png)
+
+#### Book Now
+![Book Now HTML Validation](readme/testing/book-now-validation.png)
+
+#### My Bookings
+![My Bookings HTML Validation](readme/testing/my-bookings-validation.png)
+
+#### Edit Booking
+![Edit Booking HTML Validation](readme/testing/edit-booking-validation.png)
+
+#### Delete Booking
+![Delete Booking HTML Validation](readme/testing/delete-booking-validation.png)
+
+#### Review
+![Review HTML Validation](readme/testing/review-validation.png)
+
 ### CSS
 To validate my CSS I used the [W3C CSS validator](https://jigsaw.w3.org/css-validator/#validate_by_input) by direct input. I copied and pasted my [style.css](static/css/style.css) file into the validator and it returned no errors.
 
@@ -34,10 +57,89 @@ Firstly I installed the autopep8 formatter by using the following command <code>
 To further validate my Python files against the pep8 guidelines I used pycodestyle to run a command that returns the first error in the file. To install pycodestyle I entered the following command into the terminal <code>pip install pycodestyle</code>The command to reveal the errors was: <code>pycodestyle --first </code> followed by the filename. I ran this command for each python file in the booking app and after the changed had been made there were no errors.
 
 
-
 ## WAVE Evaluation Tool
+To test this sites accessability I used the [WAVE Evaluation Tool](https://wave.webaim.org/) to find any errors on the site. 
+
+After testing each page there were no errors returned, however there were a couple of alerts to note.
+
+On the home page the following alerts were found:
+
+![WAVE Evaluation Home page](readme/testing/wave-home.png)
+
+The first alert is in regards to the home page link. The WAVE tool says that it is redundant as there is another link the home page just before it. I have decided to ignore this as it doesn't cause any issues and adheres to my design choices.
+
+The other alerts are in regards to the embedded google map at the bottom of the home page. I am unable to do anything about these alerts so I have left them.
+
+After testing the other pages the only alert found on each page was in regards to the redundant home page link. Which I have chosen to keep for design reasons.
+
+![Wave Evaluation All Pages](readme/testing/wave-all.png)
+
 
 ## Lighthouse
+### **Home**
+
+**Desktop**
+
+![Home Lighthouse Desktop](readme/testing/lh-home-desktop.png)
+
+**Mobile**
+
+![Home Lighthouse Mobile](readme/testing/lh-home-mobile.png)
+
+### **Our Tables**
+**Desktop**
+
+![Our Tables Lighthouse Desktop](readme/testing/lh-tables-desktop.png)
+
+**Mobile**
+
+![Our Tables Lighthouse Mobile](readme/testing/lh-tables-mobile.png)
+
+### **Book Now**
+**Desktop**
+
+![Book Now Lighthouse Desktop](readme/testing/lh-book-now-desktop.png)
+
+**Mobile**
+
+![Book Now Lighthouse Mobile](readme/testing/lh-book-now-mobile.png)
+
+### **My Bookings**
+**Desktop**
+
+![My Bookings Lighthouse Desktop](readme/testing/lh-my-bookings-desktop.png)
+
+**Mobile**
+
+![My Bookings Lighthouse mobile](readme/testing/lh-my-bookings-mobile.png)
+
+### **Edit Booking**
+**Desktop**
+
+![Edit Booking Lighthouse Desktop](readme/testing/lh-edit-desktop.png)
+
+**Mobile**
+
+![Edit Booking Lighthouse Mobile](readme/testing/lh-edit-mobile.png)
+
+### **Delete Booking**
+**Desktop**
+
+![Delete Booking Lighthouse Desktop](readme/testing/lh-delete-desktop.png)
+
+**Mobile**
+
+![Delete Booking Lighthouse Mobile](readme/testing/lh-delete-mobile.png)
+
+### **Review**
+**Desktop**
+
+![Review Lighthouse Desktop](readme/testing/lh-review-desktop.png)
+
+**Mobile**
+
+![Review Lighthouse Mobile](readme/testing/lh-review-mobile.png)
+
 
 ## Manual Testing
 To test this site I created pass criteria for the following user stories.

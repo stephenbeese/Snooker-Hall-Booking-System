@@ -90,27 +90,10 @@ You can view my testing procedures in [TESTING.md](TESTING.md)
  
 ### **Bugs**
 - After my 'Final commit', there were no static files showing up when <code>DEBUG = False</code> so I removed the WhiteNoise dependency and ran <code>python3 manage.py collectstatic</code> in the terminal. This solved the issue of no static files. The original purpose was for django WhiteNoise was to host its own static files for Heroku as it was not able to find the relevant static files.
+
 #### **Remaining Bugs**
-- No known bugs
+- The only known bug is when a user selects an end time out of the range of the business' opening times. The pop up tells the user to choose a slot after 12:00 rather than saying before 23:00. I'm unsure how to change this message so I have decided to leave it as at the top of the page the user is told the opening times.
 
-### **Validator Testing**
-- **HTML Validator:**
-This site has passed the W3C HTML validator with no errors or warnings
-
-![HTML Validator](readme/html-validator.png)
-
-- **CSS Validator:**
-This site has passed the W3C CSS validator with no errors
-
-![CSS Validator](readme/css-validator.png)
-
-- **Lighthouse:**
-
-<br>
-
-![Lighthouse](readme/lighthouse.png)
-
- 
  
 ## **Deployment**
 <hr>
