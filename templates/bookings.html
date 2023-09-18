@@ -69,8 +69,8 @@
                                     <td>{{ booking.date }}</td>
                                     <td>{{ booking.start_time }} - {{ booking.end_time }}</td>
                                     <td>£{{ booking.total_price }}</td>
-                                    <td><a href="/edit_booking/{{ booking.booking_id }}"><button class="btn btn-dark fw-bold">Edit</button></a></td>
-                                    <td><a href="{% url 'confirm_delete' booking.booking_id %}"><button class="btn btn-dark fw-bold">Delete</button></a></td>
+                                    <td><a href="/edit_booking/{{ booking.booking_id }}" class="btn btn-dark fw-bold">Edit</a></td>
+                                    <td><a href="{% url 'confirm_delete' booking.booking_id %}" class="btn btn-dark fw-bold">Delete</a></td>
                                 </tr>
                                 {% endif %}
                                 {% endfor %}
