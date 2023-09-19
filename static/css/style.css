@@ -44,14 +44,14 @@ body {
 }
 
 .snooker-image {
-  background-image: url("../images/snooker-home.jpg");
+  background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695125249/static/images/snooker-home.6058cf2ba77c.jpg");
   background-size: cover;
   min-height: 70vh;
   max-height: 110%;
 }
 
 .american-pool-image {
-  background-image: url("../images/american-pool.jpg");
+  background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695056884/static/images/american-pool.914ae0a87a71.jpg");
   background-size: cover;
   min-height: 70vh;
   max-height: 110%;
