@@ -77,30 +77,28 @@ After testing the other pages the only alert found on each page was in regards t
 
 ## Lighthouse
 ### **Home**
+I was getting some issues regarding the performance on the home page. To help with this issue I first compressed the images and then resized them to be the size of the bootstrap breakpoints at large, medium, and small screen sizes. I then added media queries to the images to change the images to their respective screen size. This helped a lot with performance however it was still not getting much above 60. I then figured out that I was loading all Font Awesome icons which was unnecessary, so I switched the source to only display my particular Font Awesome kit. This along with the image compression and resizing allowed my performance level to get up to a standard I was happy with. 
 
 **Desktop**
 
-Prior to home image compression:
+Prior to the changes:
 
 ![Home Lighthouse Desktop](readme/testing/lh-home-desktop.png)
 
-After home image compression:
+After the changes:
 
 ![Home Lighthouse Desktop](readme/testing/lh-home-desktop-2.png)
 
 **Mobile**
 
-Prior to home image compression:
+Prior to the changes:
 
 ![Home Lighthouse Mobile](readme/testing/lh-home-mobile.png)
 
-After home image compression:
+After the changes:
 
 ![Home Lighthouse Mobile](readme/testing/lh-home-mobile-2.png)
 
-I believe that the some of the performance issues are due to the embedded Google Maps API.
-
-The home images could also benefit from being resized.
 
 ### **Our Tables**
 **Desktop**
