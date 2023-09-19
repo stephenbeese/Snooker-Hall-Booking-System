@@ -43,6 +43,20 @@ body {
   max-height: 110%;
 }
 
+.snooker-image {
+  background-image: url("../images/snooker-home.jpg");
+  background-size: cover;
+  min-height: 70vh;
+  max-height: 110%;
+}
+
+.american-pool-image {
+  background-image: url("../images/american-pool.jpg");
+  background-size: cover;
+  min-height: 70vh;
+  max-height: 110%;
+}
+
 .caption {
   background-color: rgba(33, 37, 41, 0.65);
   margin-bottom: auto;
@@ -241,20 +255,44 @@ body {
 /* Media Queries */
 
 @media (max-width: 767px) {
-  .my-div {
-      background-image: url('../images/pool-home-sm.jpg');
+  .snooker-image {
+    background-image: url(../images/snooker-home-sm.jpg);
+  }
+
+  .english-pool {
+      background-image: url('https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695122698/static/images/pool-home-sm.c7e69a133049.jpg');
+  }
+
+  .american-pool-image {
+    background-image: url(../images/american-pool-sm.jpg);
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .my-div {
-      background-image: url('../images/pool-home-md.jpg');
+  .snooker-image {
+    background-image: url(../images/snooker-home-md.jpg);
+  }
+
+  .english-pool {
+      background-image: url('https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695122699/static/images/pool-home-md.307bf1484561.jpg');
+  }
+
+  .american-pool-image {
+    background-image: url(../images/american-pool-md.jpg);
   }
 }
 
 @media (min-width: 992px) and (max-width: 1000px) {
-  .my-div {
-      background-image: url('../images/pool-home-lg.jpg');
+  .snooker-image {
+    background-image: url(../images/snooker-home-lg.jpg);
+  }
+
+  .english-pool {
+      background-image: url('https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695122700/static/images/pool-home-lg.b4ae5e6ca1de.jpg');
+  }
+
+  .american-pool-image {
+    background-image: url(../images/american-pool-lg.jpg);
   }
 }
 
