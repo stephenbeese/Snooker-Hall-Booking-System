@@ -36,6 +36,13 @@ body {
   max-height: 110%;
 }
 
+.english-pool {
+  background-image: url("../images/pool-home.jpeg");
+  background-size: cover;
+  min-height: 70vh;
+  max-height: 110%;
+}
+
 .caption {
   background-color: rgba(33, 37, 41, 0.65);
   margin-bottom: auto;
