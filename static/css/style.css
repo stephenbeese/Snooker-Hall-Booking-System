@@ -37,7 +37,7 @@ body {
 }
 
 .english-pool {
-  background-image: url("../images/pool-home.jpeg");
+  background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695056883/static/images/pool-home.717919c93fff.jpg");
   background-size: cover;
   min-height: 70vh;
   max-height: 110%;
@@ -235,3 +235,28 @@ body {
   max-width: 45%;
   border: 1px solid;
 }
+
+
+
+/* Media Queries */
+
+@media (max-width: 767px) {
+  .my-div {
+      background-image: url('../images/pool-home-sm.jpg');
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .my-div {
+      background-image: url('../images/pool-home-md.jpg');
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1000px) {
+  .my-div {
+      background-image: url('../images/pool-home-lg.jpg');
+  }
+}
+
+
+
