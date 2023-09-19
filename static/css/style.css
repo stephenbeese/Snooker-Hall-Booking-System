@@ -256,7 +256,7 @@ body {
 
 @media (max-width: 767px) {
   .snooker-image {
-    background-image: url(../images/snooker-home-sm.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124323/static/images/snooker-home-sm.b1a2540caed6.jpg");
   }
 
   .english-pool {
@@ -264,13 +264,13 @@ body {
   }
 
   .american-pool-image {
-    background-image: url(../images/american-pool-sm.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124326/static/images/american-pool-sm.0e7a761f79a4.jpg");
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .snooker-image {
-    background-image: url(../images/snooker-home-md.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124320/static/images/snooker-home-md.17ec86034daa.jpg");
   }
 
   .english-pool {
@@ -278,13 +278,13 @@ body {
   }
 
   .american-pool-image {
-    background-image: url(../images/american-pool-md.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124321/static/images/american-pool-md.cbfa066527cc.jpg");
   }
 }
 
 @media (min-width: 992px) and (max-width: 1000px) {
   .snooker-image {
-    background-image: url(../images/snooker-home-lg.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124324/static/images/snooker-home-lg.5cd6383bb50c.jpg");
   }
 
   .english-pool {
@@ -292,7 +292,7 @@ body {
   }
 
   .american-pool-image {
-    background-image: url(../images/american-pool-lg.jpg);
+    background-image: url("https://res.cloudinary.com/dc4ysqmxt/image/upload/v1695124325/static/images/american-pool-lg.604438145045.jpg");
   }
 }
 
